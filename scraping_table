@@ -1,0 +1,50 @@
+import requests
+import pandas as pd
+from bs4 import BeautifulSoup
+
+url = "https://vi.wikipedia.org/wiki/Trí_tuệ_nhân_tạo"
+headers = {
+    "User-Agent": "StudentProject/1.0 (contact: huynq1411@gmail.com)"
+}
+
+html = requests.get(url, headers=headers)
+soup = BeautifulSoup(html.text, "html.parser")
+
+content_div = soup.find("div", class_="mw-content-ltr mw-parser-output")
+tables = content_div.find_all("table")
+
+table_data = None
+
+heading_tags = ['h1', 'h2', 'h3', 'h4', 'h5']
+
+# for table in tables:
+#     table_row = []
+    
+#     body = table.find("tbody")
+#     rows = body.find_all('tr') if body else table.find_all('tr')
+#     for row in rows:
+#         cells = row.find_all(["th", "td"])
+#         row_data = [cell.get_text(" ", strip=True) for cell in cells]
+
+#         if row_data:
+#             table_row.append(row_data)
+
+#     if table_row:
+#         table_data.append(table_row)
+
+for element in content_div.find_all(["table"] + heading_tags):
+    if element.name in heading_tags:
+        current_heading = element.get_text(strip=True)
+    
+    elif element.name == 'table':
+        table_data.append({
+            "heading": current_heading,
+            "table": element
+        })
+
+
+headings = [heading.text.strip() for heading in headings]
+
+data_fr = pd.DataFrame(headings)
+print(data_fr)
+

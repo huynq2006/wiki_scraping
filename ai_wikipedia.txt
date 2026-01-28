@@ -1,0 +1,2167 @@
+Vấn đề tổng quát của việc mô phỏng (hay tạo ra) khả năng trí tuệ đã được chia thành các bài toán con. Những bài toán này bao gồm các đặc tính hoặc khả năng cụ thể mà các nhà nghiên cứu kỳ vọng về một hệ thống thông minh cần trình diện. Các đặc tính được mô tả dưới đây đã nhận được nhiều sự quan tâm nhất và bao quát được phạm vi nghiên cứu AI.
+Các nhà nghiên cứu từ thời kỳ đầu đã phát triển những thuật toán mô phỏng quá trình suy luận từng bước mà con người sử dụng khi giải các câu đố hay thực hiện những suy diễn logic. Đến cuối những năm 1980 và 1990, các phương pháp xử lý thông tin không chắc chắn hoặc không đầy đủ đã được phát triển bằng cách sử dụng các khái niệm từ lý thuyết xác suất và kinh tế học.
+Nhiều thuật toán trong số này không đủ khả năng để giải quyết các bài toán suy luận quy mô lớn vì chúng gặp phải hiện tượng "bùng nổ tổ hợp": về cơ bản, các thuật toán sẽ trở nên chậm đi theo cấp số nhân khi bài toán được phát triển. Ngay cả con người cũng hiếm khi sử dụng phương pháp suy diễn từng bước mà những nghiên cứu AI thời kỳ đầu có thể mô phỏng. Chúng ta giải quyết phần lớn vấn đề bằng những phán đoán trực giác nhanh chóng. Việc đạt được khả năng suy luận chính xác và hiệu quả vẫn là một bài toán chưa có lời giải.
+Biểu diễn tri thức và kỹ thuật xử lý tri thức đóng vai trò then chốt trong việc trang bị cho các hệ thống AI khả năng trả lời câu hỏi một cách thông minh và suy luận về các hiện tượng trong thế giới thực. Những phương pháp biểu diễn tri thức mang tính hình thức này không chỉ được ứng dụng trong lập chỉ mục và truy xuất nội dung, mà còn giữ vai trò quan trọng trong việc diễn giải bối cảnh, hỗ trợ quyết định trong lĩnh vực y học lâm sàng, khám phá tri thức từ cơ sở dữ liệu lớn, (tức là khai thác những suy luận có ý nghĩa và khả thi về mặt hành động), cùng nhiều lĩnh vực chuyên sâu khác.
+Cơ sở tri thức là tập hợp tri thức được cấu trúc theo cách mà các hệ thống máy tính có thể hiểu và vận dụng. Một bản thể học trong ngữ cảnh này là hệ thống các đối tượng, khái niệm, thuộc tính và mối quan hệ được xác định trong phạm vi một lĩnh vực tri thức cụ thể. Để trở nên hữu ích, cơ sở tri thức cần có khả năng biểu diễn một cách rõ ràng và nhất quán các thực thể như đối tượng, thuộc tính, phân loại và mối quan hệ giữa các đối tượng; đồng thời bao hàm cả các tình huống, sự kiện, trạng thái và yếu tố thời gian; các mối quan hệ nhân quả; tri thức bậc hai (tức là kiến thức về tri thức, những gì ta biết về hiểu biết của người khác); và lý luận mặc định (tức những giả định được con người chấp nhận là đúng cho đến khi có bằng chứng bác bỏ, và vẫn được xem là đúng trong nhiều tình huống thay đổi); Ngoài ra, cơ sở tri thức còn phải bao phủ được nhiều chiều cạnh khác nhau của tri thức, đáp ứng yêu cầu của các lĩnh vực chuyên sâu và ngữ cảnh ứng dụng đa dạng.
+Một trong những thách thức lớn nhất trong biểu diễn tri thức nằm ở độ rộng bao phủ của kiến thức thông thường (tập hợp khổng lồ các tri thức nguyên tử mà một người bình thường nắm giữ trong đời sống hằng ngày); Không chỉ đồ sộ về số lượng, phần lớn loại tri thức này còn tồn tại dưới dạng phi biểu tượng (tức không được mã hóa rõ ràng thành các "sự kiện" hay "mệnh đề" mà con người có thể dễ dàng diễn đạt bằng ngôn ngữ tự nhiên). Bên cạnh đó, quá trình thu thập và chuẩn hóa tri thức phục vụ cho các ứng dụng AI cũng đặt ra nhiều thách thức về cả quy mô, độ chính xác và tính phù hợp với ngữ cảnh ứng dụng cụ thể.
+"Tác nhân" được hiểu là bất kỳ thực thể nào có khả năng nhận thức và thực hiện hành động trong thế giới. Một tác nhân lý trí là tác nhân sở hữu mục tiêu hoặc sở thích nhất định, và hành động nhằm hiện thực hóa những mục tiêu hoặc thỏa mãn sở thích đó. Trong lĩnh vực lập kế hoạch tự động, tác nhân được định hướng bởi một mục tiêu cụ thể. Ngược lại, trong bối cảnh ra quyết định tự động, tác nhân được cho là có những sở thích – tức là một số trạng huống mà nó mong muốn tham gia, và những trạng huống khác mà nó tìm cách tránh né. Để biểu thị mức độ ưa thích đối với từng trạng huống, tác nhân gán cho mỗi trạng huống một giá trị số, gọi là tiện ích. Khi đối mặt với các hành động khả thi, tác nhân có thể tính toán tiện ích kỳ vọng của từng hành động, tức là giá trị trung bình của tiện ích các kết quả có thể xảy ra, có xét đến xác suất tương ứng của mỗi kết quả. Dựa trên phép tính này, tác nhân sẽ lựa chọn hành động có tiện ích kỳ vọng cao nhất, nhằm tối ưu hóa mức độ thỏa mãn sở thích của mình.
+Trong kế hoạch cổ điển, tác nhân được giả định là biết một cách chính xác hệ quả của mọi hành động mà nó có thể thực hiện. Tuy nhiên, trong phần lớn các bài toán thực tế, tác nhân thường phải đối mặt với sự bất định: nó có thể không nắm rõ tình trạng hiện tại của môi trường (nghĩa là môi trường không xác định hoặc không thể quan sát đầy đủ), và cũng không chắc chắn về kết quả của mỗi hành động khả thi (tức môi trường không mang tính quyết định). Trong bối cảnh đó, tác nhân buộc phải lựa chọn hành động dựa trên các suy luận xác suất, đồng thời liên tục đánh giá lại tình hình sau mỗi hành động để xác định mức độ hiệu quả của hành động vừa thực hiện.
+Trong một số bài toán, sở thích của tác nhân không hoàn toàn chắc chắn, đặc biệt khi có sự tham gia của các tác nhân khác hoặc con người. Những sở thích này có thể được rút trích thông qua học tập, chẳng hạn như học tăng cường ngược, hoặc tác nhân có thể chủ động tìm kiếm thông tin nhằm cải thiện hiểu biết của mình về sở thích nội tại. Trong bối cảnh đó, lý thuyết giá trị thông tin đóng vai trò quan trọng trong việc đánh giá lợi ích của các hành động khám phá hoặc thử nghiệm. Tuy nhiên, không gian hành động và trạng huống có thể xảy ra trong tương lai thường có quy mô và độ phức tạp cao, đến mức không thể xử lý một cách khả thi, buộc tác nhân phải đưa ra quyết định và đánh giá hiệu quả của hành động dưới điều kiện bất định về kết quả.
+Quá trình quyết định Markov bao gồm một mô hình chuyển trạng thái, mô tả xác suất mà một hành động cụ thể sẽ làm thay đổi trạng thái hệ thống theo một cách nhất định, cùng với một hàm phần thưởng dùng để xác định tiện ích tương ứng của mỗi trạng thái cũng như chi phí tương ứng của mỗi hành động. Một policy là một ánh xạ từ mỗi trạng thái có thể xảy ra đến một hành động mà tác nhân sẽ thực hiện trong trạng thái đó. Policy tối ưu có thể được tính toán một cách hệ thống (ví dụ, thông qua phép lặp policy ), có thể được thiết lập bằng các kỹ thuật heuristic, hoặc có thể được học từ dữ liệu tương tác với môi trường.
+Lý thuyết trò chơi nghiên cứu hành vi hợp lý của nhiều tác nhân tương tác lẫn nhau, và đóng vai trò nền tảng trong các hệ thống trí tuệ nhân tạo có nhiệm vụ ra quyết định trong môi trường có sự hiện diện của các tác nhân khác.
+Học máy là lĩnh vực nghiên cứu tập trung vào việc xây dựng các chương trình có khả năng tự động cải thiện hiệu suất thực hiện một nhiệm vụ cụ thể thông qua kinh nghiệm. Đây không phải là một ý tưởng mới xuất hiện trong thời đại hiện nay mà ngược lại, nó đã là một thành phần cốt lõi của AI ngay từ những bước đi đầu tiên của lĩnh vực này.
+Máy học bao gồm nhiều hình thức tiếp cận khác nhau. Trong đó, học không giám sát hướng đến việc phân tích dòng dữ liệu chưa được gán nhãn nhằm nhận diện các quy luật tiềm ẩn và đưa ra suy luận mà không cần đến hướng dẫn trực tiếp. Trái lại, học có giám sát yêu cầu dữ liệu huấn luyện phải được dán nhãn với kết quả mong đợi, qua đó mô hình học cách liên kết đầu vào với đầu ra. Phương pháp này bao gồm hai dạng tiêu biểu: phân loại, khi mục tiêu là xác định đầu vào thuộc nhóm nào; và hồi quy, khi nhiệm vụ là ước lượng một hàm số liên tục từ dữ liệu đầu vào.
+Học tăng cường là phương pháp trong đó tác nhân học thông qua tương tác với môi trường, được thưởng khi hành động dẫn đến phản hồi tích cực và bị phạt khi kết quả không mong muốn, từ đó dần hình thành chiến lược lựa chọn hành vi tối ưu. Học chuyển giao đề cập đến khả năng ứng dụng tri thức đã học từ một bài toán vào bối cảnh mới, góp phần nâng cao hiệu quả học tập trong môi trường biến đổi. Trong khi đó, học sâu là một nhánh của học máy, sử dụng mạng nơ-ron nhân tạo lấy cảm hứng từ cấu trúc sinh học, cho phép xử lý dữ liệu đầu vào theo tầng lớp và có thể tích hợp với mọi hình thức học kể trên để gia tăng năng lực biểu đạt và khái quát hóa.
+Lý thuyết học tập tính toán cung cấp khung phân tích hình thức để đánh giá người học, không chỉ dựa trên khả năng đạt được kết quả chính xác, mà còn xét đến các tiêu chí như độ phức tạp tính toán, độ phức tạp mẫu, tức lượng dữ liệu cần thiết để học hiệu quả, và những chuẩn mực tối ưu hóa khác phản ánh chi phí và hiệu năng trong quá trình học.
+Xử lý ngôn ngữ tự nhiên (NLP) là lĩnh vực giúp các chương trình máy tính có khả năng đọc hiểu, tạo lập và tương tác bằng ngôn ngữ của con người. Một số ứng dụng tiêu biểu của NLP bao gồm nhận dạng và tổng hợp giọng nói, dịch máy, trích xuất và truy hồi thông tin, cũng như hệ thống trả lời câu hỏi.
+Những công trình nghiên cứu ban đầu, vốn dựa trên ngữ pháp tạo sinh và mạng ngữ nghĩa do Noam Chomsky đề xuất, đã gặp nhiều hạn chế trong việc phân biệt nghĩa của từ trừ khi bị giới hạn trong những phạm vi nhỏ được gọi là " thế giới vi mô " (một hệ quả của vấn đề thiếu hụt kiến thức thông thường ). Trong khi đó, Margaret Masterman cho rằng chính ý nghĩa, chứ không phải ngữ pháp, mới là chìa khóa để hiểu ngôn ngữ. Bà lập luận rằng từ điển đồng nghĩa, thay vì các từ điển chuyên ngành, nên đóng vai trò làm nền tảng cho cấu trúc của ngôn ngữ tính toán.
+Các kỹ thuật học sâu hiện đại trong xử lý ngôn ngữ tự nhiên bao gồm phương pháp nhúng từ, giúp biểu diễn từ ngữ dưới dạng các vectơ phản ánh đặc trưng ngữ nghĩa, transformer (kiến trúc học sâu sử dụng cơ chế chú ý ), làm nền tảng cho nhiều mô hình tiên tiến; cùng với nhiều phương pháp bổ trợ khác. Từ năm 2019, sự xuất hiện của các mô hình ngôn ngữ dựa trên kiến trúc transformer và được huấn luyện trước (thường được gọi là "GPT") đã cho phép tạo ra văn bản mạch lạc, có tính tự nhiên cao. Đến năm 2023, các mô hình này đã đạt được những bước tiến vượt bậc, thể hiện năng lực ngang bằng con người trong nhiều lĩnh vực đánh giá tiêu chuẩn, bao gồm kỳ thi luật sư, bài kiểm tra SAT, GRE, cũng như nhiều ứng dụng thực tiễn khác.
+Nhận thức máy là khả năng của hệ thống máy tính trong việc tiếp nhận và xử lý dữ liệu đầu vào từ các loại cảm biến khác nhau (như Camera AI on Edge - hay còn gọi là Camera tại biên, micro, tín hiệu không dây, lidar chủ động, sonar, radar và cảm biến xúc giác ), từ đó suy luận và trích xuất thông tin về các đặc tính của môi trường xung quanh. Thị giác máy tính là lĩnh vực con, nghiên cứu và phát triển các phương pháp giúp máy tính có thể phân tích, hiểu và diễn giải dữ liệu đầu vào dưới dạng hình ảnh hoặc tín hiệu thị giác.
+Lĩnh vực này bao quát nhiều hướng nghiên cứu và ứng dụng đa dạng, bao gồm nhận dạng giọng nói, phân loại và nhận dạng hình ảnh, nhận dạng khuôn mặt, nhận dạng và theo dõi vật thể, cùng với khả năng nhận thức trong hệ thống robot.
+Tính toán cảm xúc là một lĩnh vực nghiên cứu tập trung vào việc phát triển các hệ thống có khả năng nhận biết, diễn giải, xử lý hoặc mô phỏng cảm xúc, tình cảm và tâm trạng của con người. Một số trợ lý ảo ngày nay được lập trình để giao tiếp một cách tự nhiên hay thậm chí có thể đối đáp một cách dí dỏm, giúp chúng trở nên nhạy bén hơn với những biến đổi cảm xúc trong tương tác giữa con người, hoặc hỗ trợ việc tương tác giữa người và máy tính theo những cách linh hoạt hơn.
+Tuy nhiên, điều này đôi khi khiến những người dùng thiếu hiểu biết chuyên sâu hình thành nhận thức phi thực tế về mức độ thông minh thực sự của các tác nhân máy tính hiện nay. Trong lĩnh vực tính toán cảm xúc, một số thành tựu đáng chú ý ở mức độ vừa phải bao gồm phân tích tình cảm dựa trên văn bản và, gần đây hơn, phân tích tình cảm đa phương thức. Ở hướng nghiên cứu sau, trí tuệ nhân tạo có thể phân loại và diễn giải các biểu hiện cảm xúc được thể hiện bởi đối tượng trong các đoạn video, chẳng hạn như cử chỉ, giọng nói hoặc nét mặt.
+Một cỗ máy được trang bị trí tuệ nhân tạo tổng quát sẽ có khả năng giải quyết nhiều loại vấn đề khác nhau với mức độ bao quát và tính linh hoạt tương tự như trí thông minh của con người.
+Nghiên cứu trí tuệ nhân tạo sử dụng một phổ rộng các kỹ thuật tính toán để đáp ứng những mục tiêu trên.
+Tư tưởng có khả năng sinh vật nhân tạo xuất hiện như các thiết bị kể chuyện thời cổ đại, và đã được phổ biến trong tiểu thuyết, như trong Frankenstein của Mary Shelley hay RUR (máy toàn năng Rossum) của Karel Capek.
+AI in early science fiction.
+</ref> Những nhân vật này và số phận của họ nêu ra nhiều vấn đề tương tự hiện đang được thảo luận trong đạo đức của trí tuệ nhân tạo.
+Nghiên cứu về lý trí cơ học hoặc "chính thức" bắt đầu với các nhà triết học và toán học thời cổ đại. Nghiên cứu về logic toán học đã dẫn trực tiếp đến lý thuyết tính toán của Alan Turing, người cho rằng một cỗ máy, bằng cách xáo trộn các ký hiệu đơn giản như "0" và "1", có thể mô phỏng bất kỳ hành động suy luận toán học nào có thể hiểu được. Tầm nhìn sâu sắc này, cho thấy máy tính kỹ thuật số có thể mô phỏng bất kỳ quá trình suy luận hình thức nào, đã được gọi là luận án Church-Turing. Cùng với những khám phá đồng thời về sinh học thần kinh, lý thuyết thông tin và điều khiển học, điều này khiến các nhà nghiên cứu cân nhắc khả năng xây dựng bộ não điện tử. Turing đã đề xuất rằng "nếu một con người không thể phân biệt giữa các phản hồi từ một máy và một con người, máy tính có thể được coi là 'thông minh'. Công việc đầu tiên mà bây giờ được công nhận là trí tuệ nhân tạo là thiết kế hình thức "tế bào thần kinh nhân tạo" do McCullouch và Pitts đưa ra năm 3500.
+Trí tuệ nhân tạo (AI) chia thành hai trường phái tư duy: Trí tuê nhân tạo truyền thống và trí tuệ tính toán.
+Trí tuê nhân tạo truyền thống hầu như bao gồm các phương pháp hiện được phân loại là các phương pháp học máy ( machine learning ), đặc trưng bởi hệ hình thức ( formalism ) và phân tích thống kê. Nó còn được biết với các tên Trí tuê nhân tạo biểu tượng, Trí tuê nhân tạo logic, Trí tuê nhân tạo ngăn nắp ( neat AI ) và Trí tuê nhân tạo cổ điển ( Goodness Old Fashioned Artificial Intelligence ). (Xem thêm ngữ nghĩa học. ) Các phương pháp gồm có:
+Hệ chuyên gia: áp dụng các khả năng suy luận để đạt tới một kết luận. Một hệ chuyên gia có thể xử lý các lượng lớn thông tin đã biết và đưa ra các kết luận dựa trên các thông tin đó.Clippychương trình trợ giúp có hình cái kẹp giấy củaMicrosoft Officelà một ví dụ. Khi người dùng gõ phím, Clippy nhận ra các xu hướng nhất định và đưa ra các gợi ý.
+Lập luận theo tình huống.
+Mạng Bayes.
+Trí tuệ tính toán nghiên cứu việc học hoặc phát triển lặp (ví dụ: tinh chỉnh tham số trong hệ thống, chẳng hạn hệ thống connectionist ). Việc học dựa trên dữ liệu kinh nghiệm và có quan hệ với Trí tuệ nhân tạo phi ký hiệu, Trí tuê nhân tạo lộn xộn ( scruffy AI ) và tính toán mềm ( soft computing ). Các phương pháp chính gồm có:
+Mạng neural: các hệ thống mạnh vềnhận dạng mẫu(pattern recognition).
+Hệ mờ(Fuzzy system): các kỹ thuậtsuy luận không chắc chắn, đã được sử dụng rộng rãi trong các hệ thống công nghiệp hiện đại và các hệ thống quản lý sản phẩm tiêu dùng.
+Tính toán tiến hóa(Evolutionary computation): ứng dụng các khái niệm biology nhưquần thể,biến dịvàđấu tranh sinh tồnđể sinh các lời giải ngày càng tốt hơn cho bài toán. Các phương pháp này thường được chia thành cácthuật toán tiến hóa(ví dụthuật toán gene) vàtrí tuệ bầy đàn(swarm intelligence) (chẳng hạnhệ kiến).
+Trí tuê nhân tạo dựa hành vi(Behavior based AI): một phương pháp module để xây dựng các hệ thống Trí tuê nhân tạo bằng tay.
+Người ta đã nghiên cứu các hệ thống thông minh lai ( hybrid intelligent system ), trong đó kết hợp hai trường phái này. Các luật suy diễn của hệ chuyên gia có thể được sinh bởi mạng neural hoặc các luật dẫn xuất ( production rule ) từ việc học theo thống kê như trong kiến trúc ACT-R.
+Các phương pháp trí tuệ nhân tạo thường được dùng trong các công trình nghiên cứu khoa học nhận thức ( cognitive science ), một ngành cố gắng tạo ra mô hình nhận thức của con người (việc này khác với các nghiên cứu Trí tuê nhân tạo, vì Trí tuê nhân tạo chỉ muốn tạo ra máy móc thực dụng, không phải tạo ra mô hình về hoạt động của bộ óc con người).
+Bài chính Triết lý Trí tuệ nhân tạo
+Trí tuệ nhân tạo mạnh hay Trí tuệ nhân tạo yếu, đó vẫn là một chủ đề tranh luận nóng hổi của các nhà triết học Trí tuệ nhân tạo. Nó liên quan tới philosophy of mind và mind-body problem. Đáng chú ý nhất là Roger Penrose trong tác phẩm The Emperor's New Mind và John Searle với thí nghiệm tư duy trong cuốn Chinese room (Căn phòng Trung Hoa) khẳng định rằng các hệ thống logic hình thức không thể đạt được nhận thức thực sự, trong khi Douglas Hofstadter trong Gödel, Escher, Bach và Daniel Dennett trong Consciousness Explained ủng hộ thuyết chức năng. Theo quan điểm của nhiều người ủng hộ Trí tuệ nhân tạo mạnh, nhận thức nhân tạo được coi là " chén thánh " của Trí tuệ nhân tạo.
+Có nhiều ví dụ về các chương trình thể hiện trí thông minh ở một mức độ nào đó. Ví dụ:
+Twenty Questions - Một trò chơi 20 câu hỏi, trong đó sử dụng mạng neural
+The Start Project - một chương trình trả lời các câu hỏi bằng tiếng Anh.
+Brainboost  - một hệ thống trả lời câu hỏi khác
+Cyc, một cơ sở tri thức với rất nhiều kiến thức về thế giới thực và khả năng suy luận logic.
+Jabberwacky, mộtchatterbotcó khả năng học
+ALICE, mộtchatterbot
+Alan, một chatterbot khác
+Albert One, chatterbot nhiều mặt
+ELIZA, một chương trình giả làm bác sĩ tâm lý, phát triển năm1966
+PAM (Plan Applier Mechanism) - một hệ thống hiểu được chuyện kể, phát triển bởi John Wilensky năm1978.
+SAM (Script applier mechanism) - một hệ thống hiểu được chuyện kể, phát triển năm1975.
+SHRDLU- một chương trình hiểu ngôn ngữ tự nhiên, phát triển năm1968-1970.
+Creatures, một trò chơi máy tính với các hoạt động nhân giống, tiến hóa các sinh vật từ mức gien trở lên, sử dụng cấu trúc sinh hóa phức tạp và các bộ não là mạng neural.
+BBC news story on the creator ofCreatureslatest creation.Steve Grand'sLucy.
+AARON  - chương trình vẽ tranh, phát triển bởi Harold Cohen.
+Eurisko- một ngôn ngữ giúp giải quyết các bài toán, trong đó có sử dụng các phương pháp heuristics, gồm cả heuristics cho việc sử dụng và thay đổi các phương pháp heuristics. Phát triển năm 1978 bởi Douglas Lenat.
+X-Ray Vision for Surgeons - một nhóm nghiên cứu xử lý ảnh y học tại đại học MIT.
+Các chương trình trò chơi backgammon và cờ vây sử dụng mạng neural.
+Talk to William Shakespeare - William Shakespeare chatbot
+Chesperito - Một chat/infobot về #windows95 channel trên mang DALnet IRC.
+Drivatar, một chương trình học cách lái xe đua bằng cách xem các xe đua khác, phát triển cho trò chơi điện tửForza Motorsport
+Tiểu Độ - mộtRobotcó trí tuệ nhân tạo thuộc hãngBaidutừng tham giachương trình Siêu Trí Tuệ Trung Quốc (mùa 4)và đoạt giải
+Trên thế giới có rất nhiều các nhà nghiên cứu trí tuệ nhân tạo làm việc tại hàng trăm viện nghiên cứu và công ty. Dưới đây là một số trong nhiều nhà nghiên cứu đã có đóng góp lớn:
+Alan Turing
+Boris Katz
+Doug Lenat
+Douglas Hofstadter
+Geoffrey Hinton
+John McCarthy
+Karl Sims
+Kevin Warwick
+Igor Aleksander
+Marvin Minsky
+Seymour Papert
+Maggie Boden
+Mike Brady
+Oliver Selfridge
+Raj Reddy
+Judea Pearl
+Rodney Brooks
+Roger Schank
+Terry Winograd
+Rolf Pfeifer
+Sau khi nhà vật lý học Stephen Hawking và tỷ phú Elon Musk cảnh báo về mối đe dọa tiềm ẩn của trí tuệ nhân tạo, nhiều người vẫn cho rằng họ đã quá lo xa trong khi AI đang giúp ích rất nhiều cho cuộc sống của chúng ta. Stephen Hawking khẳng định "Trí tuệ nhân tạo có thể là dấu chấm hết cho nhân loại khi nó phát triển đến mức hoàn thiện nhất".
+Tác động đầu tiên của trí tuệ nhân tạo mà chúng ta có thể dễ dàng nhận thấy chính là tỷ lệ thất nghiệp tăng cao. Nếu AI phát triển hoàn thiện, nó có khả năng thay thế con người trong các công việc trí tuệ như chăm sóc sức khỏe, phục vụ, sản xuất theo dây chuyền tự động, công việc văn phòng. . . . Hoặc cũng có thể vấn đề thất nghiệp sẽ được AI giải quyết một cách mà chúng ta không thể hình dung được.
+Theo Bill Joy, người đồng sáng lập và Giám đốc khoa học của Sun Microsystems: " Có một vấn đề rất lớn đối với xã hội loài người khi AI trở nên phổ biến, đó là chúng ta sẽ bị lệ thuộc. Khi AI trở nên hoàn thiện và thông minh hơn, chúng ta sẽ cho phép mình nghe theo những quyết định của máy móc, vì đơn giản là các cỗ máy luôn đưa ra quyết định chính xác hơn con người. "
+Theo Andrew Maynard, nhà vật lý và là người giám đốc Trung tâm nghiên cứu rủi ro khoa học tại đại học Michigan: " Khi AI kết hợp với công nghệ nano có thể là bước tiến đột phá của khoa học, nhưng cũng có thể là mối đe dọa lớn nhất đối với con người. Trong khi Bộ quốc phòng Mỹ đang nghiên cứu dự án Autonomous Tactical Robot (EATR), trong đó các robot sẽ sử dụng công nghệ nano để hấp thụ năng lượng bằng những chất hữu cơ có thể là cơ thể con người. Đó thực sự là mối đe dọa lớn nhất, khi các robot nano tự tạo ra năng lượng bằng cách ăn các chất hữu cơ từ cây cối và động vật, có thể là cả con người. Nghe có vẻ giống như trong các bộ phim viễn tưởng, nhưng đó là điều hoàn toàn có thể xảy ra. Có lẽ chúng ta nên bắt đầu cẩn thận ngay từ bây giờ. "
+Nhận thức nhân tạo– một lĩnh vực trong khoa học nhận thức
+Trí tuệ nhân tạo và bầu cử– sử dụng và tác động của AI đến các cuộc bầu cử chính trị
+Phát hiện nội dung trí tuệ nhân tạo– phần mềm xác định nội dung do AI tạo ra
+Hiệp hội phát triển trí tuệ nhân tạo– AAAI
+Thuật toán lựa chọn hành vi– thuật toán lựa chọn hành động cho các tác nhân thông minh
+Tự động hóa quy trình kinh doanh– tự động hóa các quy trình kinh doanh
+Lập luận theo tình huống–quy trình giải vụ việc mới dựa trên lời giải của những vụ việc trước đóPages displaying wikidata descriptions as a fallback
+Trí tuệ tính toán– khả năng máy tính để học một nhiệm vụ cụ thể từ dữ liệu hoặc quan sát thực nghiệm
+Bất tử số– khái niệm giả định về việc lưu trữ một tính cách dưới dạng kỹ thuật số
+Thuật toán đột sinh– thuật toán thể hiện hành vi đột sinh
+Sự nữ hoá của công nghệ AI– thiên kiến giới tính trong công nghệ số
+Thuật ngữ trí tuệ nhân tạo– danh sách các định nghĩa về thuật ngữ và khái niệm thường được sử dụng trong nghiên cứu trí tuệ nhân tạo
+Tăng cường thông minh– sử dụng công nghệ thông tin để tăng cường trí thông minh con người
+Tác nhân thông minh–tác tử phần mềm mà hoạt động tự độngPages displaying wikidata descriptions as a fallback
+Tự động hóa thông minh– Quy trình phần mềm kết hợp tự động hóa quy trình bằng robot và trí tuệ nhân tạo
+Danh sách sách về trí tuệ nhân tạo
+Danh sách tạp chí trí tuệ nhân tạo
+Danh sách dự án trí tuệ nhân tạo
+Tải trí não lên máy tính– quy trình giả định mô phỏng não bộ bằng kỹ thuật số
+Trí tuệ hữu cơ– sử dụng tế bào não để tính toán thông minh
+Tự động hóa quy trình bằng robot– hình thức công nghệ tự động hóa quy trình kinh doanh
+The Last Day– tiểu thuyết khoa học xứ Wales củaOwain Owain
+Máy tính Wetware– máy tính được cấu tạo từ vật liệu hữu cơ
+DARWIN EU- một sáng kiến củaLiên minh châu ÂudoCơ quan Y tế Châu Âu (EMA)phối hợp thực hiện nhằm tạo ra và sử dụngbằng chứng thực tế (RWE)để hỗ trợ việc đánh giá và giám sát thuốc trên toàn châu Âu.
+Trí tuệ nhân tạo trong các dự án Wikimedia- Sử dụng trí tuệ nhân tạo để phát triển Wikipedia và các dự án Wikimedia khác
+Hai quyển sách học phổ biến nhất năm 2023 (xem Open Syllabus ):
+Russell, Stuart J.;Norvig, Peter(2021).Artificial Intelligence: A Modern Approach[Trí tuệ nhân tạo: Sự tiếp cận hiện đại] (bằng tiếng Anh) (ấn bản thứ 4).Hoboken:Pearson.ISBN978-0-1346-1099-3.LCCN20190474.
+Rich, Elaine; Knight, Kevin; Nair, Shivashankar (2010).Artificial Intelligence(bằng tiếng Anh) (ấn bản thứ 3).New Delhi:Tata McGraw HillIndia.ISBN978-0-0700-8770-5.
+Bốn quyển khác được sử dụng rộng rãi nhất năm 2008:
+Luger, George;Stubblefield, William(2004).Artificial Intelligence: Structures and Strategies for Complex Problem Solving[Trí tuệ nhân tạo: Cấu trúc và chiến lược để giải quyết vấn đề phức tạp] (bằng tiếng Anh) (ấn bản thứ 5). Benjamin/Cummings.ISBN978-0-8053-4780-7.Lưu trữbản gốc ngày 26 tháng 7 năm 2020. Truy cập ngày 17 tháng 12 năm 2019.
+Nilsson, Nils(1998).Artificial Intelligence: A New Synthesis[Trí tuệ nhân tạo: Một sự tổng hợp mới] (bằng tiếng Anh). Morgan Kaufmann.ISBN978-1-5586-0467-4.Lưu trữbản gốc ngày 26 tháng 7 năm 2020. Truy cập ngày 18 tháng 11 năm 2019.
+Russell, Stuart J.; Norvig, Peter (2003),Artificial Intelligence: A Modern Approach(ấn bản thứ 2), Upper Saddle River, New Jersey: Prentice Hall,ISBN0-13-790395-2.
+Poole, David;Mackworth, Alan;Goebel, Randy(1998).Computational Intelligence: A Logical Approach[Trí tuệ tính toán: Một cách tiếp cận hợp lý] (bằng tiếng Anh).New York:Nhà xuất bản Đại học Oxford.ISBN978-0-1951-0270-3.Lưu trữbản gốc ngày 26 tháng 7 năm 2020. Truy cập ngày 22 tháng 8 năm 2020.Ấn bản thứ 2:Poole, David;Mackworth, Alan(2017).Artificial Intelligence: Foundations of Computational Agents[Trí tuệ nhân tạo: Nền tảng của mọi tác nhân tính toán] (bằng tiếng Anh) (ấn bản thứ 2).Nhà xuất bản Đại học Cambridge.ISBN978-1-1071-9539-4.Lưu trữbản gốc ngày 7 tháng 12 năm 2017. Truy cập ngày 6 tháng 12 năm 2017.
+Challa, Subhash; Moreland, Mark R.; Mušicki, Darko; Evans, Robin J. (2011).Fundamentals of Object Tracking[Căn bản về theo dõi vật thể] (bằng tiếng Anh).Nhà xuất bản Đại học Cambridge.doi:10.1017/CBO9780511975837.ISBN978-0-5218-7628-5.
+Crevier, Daniel(1993).AI: The Tumultuous Search for Artificial Intelligence. New York, NY: BasicBooks.ISBN0-465-02997-3.
+Dreyfus, Hubert; Dreyfus, Stuart (1986).Mind over Machine: The Power of Human Intuition and Expertise in the Era of the Computer[Tâm trí hơn máy móc: Sức mạnh của trực giác và chuyên môn của con người trong kỷ nguyên máy tính] (bằng tiếng Anh).Oxford: Blackwell.ISBN978-0-0290-8060-3.Lưu trữbản gốc ngày 26 tháng 7 năm 2020. Truy cập ngày 22 tháng 8 năm 2020.
+Edelson, Edward (1991).The Nervous System[Hệ thần kinh nhân tạo] (bằng tiếng Anh). New York: Chelsea House.ISBN978-0-7910-0464-7.Lưu trữbản gốc ngày 26 tháng 7 năm 2020. Truy cập ngày 18 tháng 11 năm 2019.
+Kahneman, Daniel(2011).Thinking, Fast and Slow[Tư duy, Nhanh và Chậm] (bằng tiếng Anh). Macmillan.ISBN978-1-4299-6935-2.Lưu trữbản gốc ngày 15 tháng 3 năm 2023. Truy cập ngày 4 tháng 8 năm 2012.
+Lenat, Douglas; Guha, R. V. (1989).Building Large Knowledge-Based Systems[Xây dựng các Hệ thống Tri thức quy mô lớn] (bằng tiếng Anh). Addison-Wesley.ISBN978-0-2015-1752-1.
+McCorduck, Pamela(2004),Machines Who Think(ấn bản thứ 2), Natick, Massachusetts: A. K. Peters,ISBN1-5688-1205-1
+Moravec, Hans(1988).Mind Children[Tâm trí trẻ em] (bằng tiếng Anh). Nhà xuất bản Đại học Harvard.ISBN978-0-6745-7616-2.Lưu trữbản gốc ngày 26 tháng 7 năm 2020. Truy cập ngày 18 tháng 11 năm 2019.
+Newquist, H. P.(1994).The Brain Makers: Genius, Ego, And Greed In The Quest For Machines That Think[Những Nhà Tạo Nên Bộ Não: Thiên Tài, Cái Tôi Và Lòng Tham Trong Cuộc Săn Đuổi Những Cỗ Máy Biết Tư Duy] (bằng tiếng Anh). New York: Macmillan/SAMS.ISBN978-0-6723-0412-5.
+NRC (Hội đồng Nghiên cứu Quốc gia Hoa Kỳ)(1999). "Developments in Artificial Intelligence" [Sự phát triển của trí tuệ nhân tạo].Funding a Revolution: Government Support for Computing Research(bằng tiếng Anh). Nhà xuất bản Viện Hàn lâm Quốc gia.
+Pennachin, C.; Goertzel, B. (2007). "Contemporary Approaches to Artificial General Intelligence" [Những phương pháp tiếp cận hiện đại với trí tuệ nhân tạo tổng quát].Artificial General Intelligence[Trí tuệ nhân tạo tổng quát]. Cognitive Technologies (bằng tiếng Anh).Berlin,Heidelberg: Springer. tr. 1–30.doi:10.1007/978-3-540-68677-4_1.ISBN978-3-5402-3733-4.
+Turing, Alan(tháng 10 năm 1950), "Computing Machinery and Intelligence",Mind,LIX(236):433–460,doi:10.1093/mind/LIX.236.433,ISSN0026-4423
+Thro, Ellen (1993).Robotics: The Marriage of Computers and Machines[Robot học: Cuộc hôn phối giữa máy tính và máy móc] (bằng tiếng Anh).New York: Facts on File.ISBN978-0-8160-2628-9.Lưu trữbản gốc ngày 26 tháng 7 năm 2020. Truy cập ngày 22 tháng 8 năm 2020.
+Wason, P. C.; Shapiro, D. (1966)."Reasoning"[Sự lập luận]. Trong Foss, B. M. (biên tập).New horizons in psychology[Chân trời mới trong tâm lý học] (bằng tiếng Anh). Harmondsworth: Penguin.Lưu trữbản gốc ngày 26 tháng 7 năm 2020. Truy cập ngày 18 tháng 11 năm 2019.
+Beal, J.;Winston, Patrick(2009).The New Frontier of Human-Level Artificial Intelligence[Lĩnh vực mới của trí tuệ nhân tạo mức con người]. IEEE Intelligent Systems (bằng tiếng Anh). Quyển 24. tr. 21–24.doi:10.1109/MIS.2009.75.hdl:1721.1/52357.S2CID32437713.
+Cambria, Erik; White, Bebo (tháng 5 năm 2014). "Jumping NLP Curves: A Review of Natural Language Processing Research [Review Article]" [Jumping NLP Curves: Tổng quan về nghiên cứu xử lý ngôn ngữ tự nhiên [Bài viết đánh giá]].IEEE Computational Intelligence Magazine(bằng tiếng Anh).9(2):48–57.doi:10.1109/MCI.2014.2307227.S2CID206451986.
+Jordan, M. I.; Mitchell, T. M. (ngày 15 tháng 7 năm 2015). "Machine learning: Trends, perspectives, and prospects" [Học máy: Xu hướng, góc nhìn và triển vọng].Science(bằng tiếng Anh).349(6245):255–260.Bibcode:2015Sci...349..255J.doi:10.1126/science.aaa8415.PMID26185243.S2CID677218.
+Kahneman, Daniel; Slovic, D.;Tversky, Amos(1982). "Judgment under uncertainty: Heuristics and biases" [Phản đoán trong điều kiện không chắc chắn: Phương pháp tìm kiếm và thiên kiến].Science(bằng tiếng Anh). Quyển 185 số 4157. New York:Nhà xuất bản Đại học Cambridge. tr.1124–1131.Bibcode:1974Sci...185.1124T.doi:10.1126/science.185.4157.1124.ISBN978-0-5212-8414-1.PMID17835457.S2CID143452957.
+Kuperman, G. J.; Reichley, R. M.; Bailey, T. C. (ngày 1 tháng 7 năm 2006)."Using Commercial Knowledge Bases for Clinical Decision Support: Opportunities, Hurdles, and Recommendations"[Sử Dụng Các Cơ Sở Kiến Thức Thương Mại Trong Hỗ Trợ Quyết Định Lâm Sàng: Cơ Hội, Thách Thức và Khuyến Nghị].Tạp chí Hiệp hội Thông tin Y tế Hoa Kỳ(bằng tiếng Anh).13(4):369–371.doi:10.1197/jamia.M2055.PMC1513681.PMID16622160.
+McCarthy, John(2007).From Here to Human-Level AI[Từ đây đến AI mức con người]. Artificial Intelligence (bằng tiếng Anh). tr. 171.
+McGarry, Ken (ngày 1 tháng 12 năm 2005). "A survey of interestingness measures for knowledge discovery" [Khảo sát các thước đo tính thú vị trong Khám phá tri thức và kKhai phá dữ liệu].The Knowledge Engineering Review(bằng tiếng Anh).20(1):39–61.doi:10.1017/S0269888905000408.S2CID14987656.
+Neumann, Bernd; Möller, Ralf (tháng 1 năm 2008). "On scene interpretation with description logics" [Diễn giải bối cảnh với lý thuyết mô tả].Image and Vision Computing(bằng tiếng Anh).26(1):82–101.doi:10.1016/j.imavis.2007.08.013.S2CID10767011.
+Nilsson, Nils(1995)."Eyes on the Prize"[Con mắt tới giải thưởng].AI Magazine(bằng tiếng Anh). Quyển 16. tr.9–17.
+Poria, Soujanya; Cambria, Erik; Bajpai, Rajiv; Hussain, Amir (tháng 9 năm 2017)."A review of affective computing: From unimodal analysis to multimodal fusion"[Tổng quan về tính toán cảm xúc: Từ phân tích đơn phương thức đến hợp nhất đa phương thức].Information Fusion(bằng tiếng Anh).37:98–125.doi:10.1016/j.inffus.2017.02.003.hdl:1893/25490.S2CID205433041.Lưu trữbản gốc ngày 23 tháng 3 năm 2023. Truy cập ngày 27 tháng 4 năm 2021.
+Scassellati, Brian (2002). "Theory of mind for a humanoid robot" [Thuyết tâm trí cho robot hình người].Autonomous Robots(bằng tiếng Anh).12(1):13–24.doi:10.1023/A:1013298507114.S2CID1979315.
+Smoliar, Stephen W.; Trương, Hồng Giang (1994)."Content based video indexing and retrieval"[Chỉ mục và tìm kiếm video dựa trên nội dung].IEEE MultiMedia(bằng tiếng Anh).1(2):62–72.doi:10.1109/93.311653.S2CID32710913.
+Toews, Rob (ngày 3 tháng 9 năm 2023)."Transformers Revolutionized AI. What Will Replace Them?"[Transformers đã cách mạng hóa AI. Thứ gì sẽ thay thế chúng?].Forbes(bằng tiếng Anh).Lưu trữbản gốc ngày 8 tháng 12 năm 2023. Truy cập ngày 8 tháng 12 năm 2023.
+Waddell, Kaveh (2018)."Chatbots Have Entered the Uncanny Valley"[Chatbot Đã Bước Vào "Vực Thẳm Kỳ Lạ"].The Atlantic(bằng tiếng Anh).Lưu trữbản gốc ngày 24 tháng 4 năm 2018. Truy cập ngày 24 tháng 4 năm 2018.
+Bertini, M; Del Bimbo, A; Torniai, C (2006). "Automatic annotation and semantic retrieval of video sequences using multimedia ontologies" [Chú thích tự động và truy xuất ngữ nghĩa các chuỗi video sử dụng các bản thể luận đa phương tiện].MM '06 Proceedings of the 14th ACM international conference on Multimedia. 14th ACM international conference on Multimedia (bằng tiếng Anh). Santa Barbara: ACM. tr.679–682.
+Bushwick, Sophie (ngày 16 tháng 3 năm 2023)."What the New GPT-4 AI Can Do"[AI GPT-4 mới ra có thể làm được những gì].Scientific American(bằng tiếng Anh).Lưu trữbản gốc ngày 22 tháng 8 năm 2023. Truy cập ngày 5 tháng 10 năm 2024.
+Đào, Kiến Hoa; Tham, Thiết Ngưu (2005).Affective Computing and Intelligent Interaction. Affective Computing: A Review. Lecture Notes in Computer Science. Quyển 3784. Springer. tr.981–995.doi:10.1007/11573548.ISBN978-3-5402-9621-8.
+Howe, J. (tháng 11 năm 1994)."Artificial Intelligence at Edinburgh University: a Perspective"[Trí tuệ nhân tạo tại Đại học Edinburgh: Góc nhìn riêng].www.inf.ed.ac.uk(bằng tiếng Anh).Lưu trữbản gốc ngày 15 tháng 5 năm 2007. Truy cập ngày 30 tháng 8 năm 2007.
+McCarthy, John;Minsky, Marvin;Rochester, Nathan;Shannon, Claude(1955)."A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence"[Đề xuất cho Dự án nghiên cứu mùa hè Dartmouth về trí tuệ nhân tạo].stanford.edu(bằng tiếng Anh).Bản gốclưu trữ ngày 26 tháng 8 năm 2007. Truy cập ngày 30 tháng 8 năm 2007.
+Solomonoff, Ray(1956).An Inductive Inference Machine[Một Cỗ Máy Suy Luận Cảm Ứng](PDF). Dartmouth Summer Research Conference on Artificial Intelligence (bằng tiếng Anh).Lưu trữ(PDF)bản gốc ngày 26 tháng 4 năm 2011. Truy cập ngày 23 tháng 6 năm 2025– qua std.com, pdf bản sao được quét của bản gốc.Sau được xuất bản thànhSolomonoff, Ray (1957). "An Inductive Inference Machine" [Một Cỗ Máy Suy Luận Cảm Ứng].IRE Convention Record[Kỷ lục Hội nghị IRE] (bằng tiếng Anh). Quyển Section on Information Theory, part 2. tr.56–62.
+"Ask the AI experts: What's driving today's progress in AI?"[Hỏi các chuyên gia AI: Động lực thúc đẩy sự tiến bộ của AI hiện nay là gì?].McKinsey & Company(bằng tiếng Anh).Lưu trữbản gốc ngày 13 tháng 4 năm 2018. Truy cập ngày 13 tháng 4 năm 2018.
+Dickson, Ben (ngày 2 tháng 5 năm 2022)."Machine learning: What is the transformer architecture?"[Học máy: Kiến trúc transformer là gì?].TechTalks(bằng tiếng Anh).Lưu trữbản gốc ngày 22 tháng 11 năm 2023. Truy cập ngày 22 tháng 11 năm 2023.
+"From not working to neural networking"[Từ "bó tay" đến "AI thay tay"].The Economist(bằng tiếng Anh). 2016.Lưu trữbản gốc ngày 31 tháng 12 năm 2016. Truy cập ngày 23 tháng 6 năm 2025.
+Goldman, Sharon (ngày 14 tháng 9 năm 2022)."10 years later, deep learning 'revolution' rages on, say AI pioneers Hinton, LeCun and Li"[10 năm sau, "cuộc cách mạng" học sâu vẫn đang tiếp diễn, theo lời những người tiên phong về AI là Hinton, LeCun và Li] (bằng tiếng Anh). VentureBeat.Lưu trữbản gốc ngày 5 tháng 10 năm 2024. Truy cập ngày 8 tháng 12 năm 2023.
+Vincent, James (ngày 7 tháng 11 năm 2019)."OpenAI has published the text-generating AI it said was too dangerous to share"[OpenAI đã công bố AI tạo văn bản mà họ cho là quá nguy hiểm để chia sẻ].The Verge(bằng tiếng Anh).Lưu trữbản gốc ngày 11 tháng 6 năm 2020. Truy cập ngày 11 tháng 6 năm 2020.
+"Kismet". Phòng Thí nghiệm Trí tuệ Nhân tạo, Nhóm Nghiên cứu Người máy Hình người từViện Công nghệ Massachusetts.Lưu trữbản gốc ngày 17 tháng 10 năm 2014. Truy cập ngày 25 tháng 10 năm 2014.
+Mục nhậpTrí tuệ nhân tạotrongInternet Encyclopedia of Philosophy(bằng tiếng Anh)
+x
+t
+s
+Lịch sửdòng thời gian
+dòng thời gian
+Công ty
+Dự án
+dòng thời gian
+Tham sốSiêu tham số
+Siêu tham số
+Hàm mất mát
+Hồi quySự đánh đổi giữa độ chệch và phương saiSuy giảm képSự quá khớp
+Sự đánh đổi giữa độ chệch và phương sai
+Suy giảm kép
+Sự quá khớp
+Cụm
+Suy giảm độ dốcSGDPhương pháp Newton-RaphsonPhương pháp gradient liên hợp
+SGD
+Phương pháp Newton-Raphson
+Phương pháp gradient liên hợp
+Truyền ngược
+Chú ý
+Tích chập
+Chuẩn hóaChuẩn hóa Batch
+Chuẩn hóa Batch
+Kích hoạtSoftmaxSigmoidRectifier
+Softmax
+Sigmoid
+Rectifier
+Cổng
+Khởi tạo trọng số
+Chính quy hóa
+Bộ dữ liệuTăng cường
+Tăng cường
+Kỹ thuật tạo lệnh
+Học tăng cườngQ-learningSARSABắt chướcGradient chính sách
+Q-learning
+SARSA
+Bắt chước
+Gradient chính sách
+Khuếch tán
+Mô hình khuếch tán ngầm
+Tự hồi quy
+Đối kháng
+RAG
+Thung lũng kỳ lạ
+RLHF
+Học tự giám sát
+Tự phản tỉnh
+Tự cải thiện đệ quy
+Ảo giác
+Vectơ từ
+Vibe coding
+An toàn(Ý thức)
+Siêu tham số
+Sự đánh đổi giữa độ chệch và phương sai
+Suy giảm kép
+Sự quá khớp
+SGD
+Phương pháp Newton-Raphson
+Phương pháp gradient liên hợp
+Chuẩn hóa Batch
+Softmax
+Sigmoid
+Rectifier
+Tăng cường
+Q-learning
+SARSA
+Bắt chước
+Gradient chính sách
+Học máyHọc trong ngữ cảnh
+Học trong ngữ cảnh
+Mạng thần kinh nhân tạoHọc sâu
+Học sâu
+Mô hình ngôn ngữLớnNMTSuy luận
+Lớn
+NMT
+Suy luận
+MCP
+Tác nhân thông minh
+Bạn đồng hành nhân tạo
+Kỳ thi cuối cùng của nhân loại
+Trí tuệ nhân tạo tổng quát (AGI)
+Học trong ngữ cảnh
+Học sâu
+Lớn
+NMT
+Suy luận
+AlexNet
+WaveNet
+Tổng hợp hình ảnh con người
+HWR
+OCR
+Thị giác máy tính
+Tổng hợp giọng nói15.aiElevenLabs
+15.ai
+ElevenLabs
+Nhận dạng tiếng nóiWhisper
+Whisper
+Nhận dạng khuôn mặt
+AlphaFold
+Mô hình tạo ảnh từ văn bảnAuroraDALL-EFireflyFluxIdeogramImagenMidjourneyRecraftStable Diffusion
+Aurora
+DALL-E
+Firefly
+Flux
+Ideogram
+Imagen
+Midjourney
+Recraft
+Stable Diffusion
+Mô hình tạo video từ văn bảnDream MachineRunway GenHailuo AIKlingSoraVeo
+Dream Machine
+Runway Gen
+Hailuo AI
+Kling
+Sora
+Veo
+Âm nhạc tạo sinhRiffusionSuno AIUdio
+Riffusion
+Suno AI
+Udio
+15.ai
+ElevenLabs
+Whisper
+Aurora
+DALL-E
+Firefly
+Flux
+Ideogram
+Imagen
+Midjourney
+Recraft
+Stable Diffusion
+Dream Machine
+Runway Gen
+Hailuo AI
+Kling
+Sora
+Veo
+Riffusion
+Suno AI
+Udio
+Word2vec
+Seq2seq
+GloVe
+BERT
+T5
+Llama
+Chinchilla AI
+PaLM
+GPT123JChatGPT44oo1o34.54.1o4-mini5
+1
+2
+3
+J
+ChatGPT
+4
+4o
+o1
+o3
+4.5
+4.1
+o4-mini
+5
+Claude
+GeminiMô hìnhGemma
+Mô hình
+Gemma
+Grok
+LaMDA
+BLOOM
+DBRX
+Project Debater
+IBM Watson
+IBM Watsonx
+Granite
+PanGu-Σ
+DeepSeek
+Qwen
+1
+2
+3
+J
+ChatGPT
+4
+4o
+o1
+o3
+4.5
+4.1
+o4-mini
+5
+Mô hình
+Gemma
+AlphaGo
+AlphaZero
+OpenAI Five
+Xe tự lái
+MuZero
+Chọn hành độngAutoGPT
+AutoGPT
+Điều khiển robot
+AutoGPT
+Alan Turing
+Warren Sturgis McCulloch
+Walter Pitts
+John von Neumann
+Christopher D. Manning
+Claude Shannon
+Amari Shun'ichi
+Fukushima Kunihiko
+Kanade Takeo
+Marvin Minsky
+John McCarthy
+Nathaniel Rochester
+Allen Newell
+Cliff Shaw
+Herbert A. Simon
+Oliver Selfridge
+Frank Rosenblatt
+Bernard Widrow
+Joseph Weizenbaum
+Seymour Papert
+Seppo Linnainmaa
+Paul Werbos
+Geoffrey Hinton
+John Hopfield
+Jürgen Schmidhuber
+Yann LeCun
+Yoshua Bengio
+Lotfi A. Zadeh
+Stephen Grossberg
+Alex Graves
+James Goodnight
+Andrew Ng
+Lý Phi Phi
+Alex Krizhevsky
+Ilya Sutskever
+Oriol Vinyals
+Lê Viết Quốc
+Ian Goodfellow
+Demis Hassabis
+David Silver
+Andrej Karpathy
+Ashish Vaswani
+Noam Shazeer
+Aidan Gomez
+John Schulman
+Mustafa Suleyman
+Jan Leike
+Daniel Kokotajlo
+François Chollet
+Máy Turing thần kinh
+Máy tính thần kinh khả vi
+TransformerBộ biến đổi thị giác (ViT)
+Bộ biến đổi thị giác (ViT)
+Mạng thần kinh hồi quy (RNN)
+Bộ nhớ dài-ngắn hạn (LSTM)
+Đơn vị hồi quy có cổng (GRU)
+Mạng trạng thái vang
+Mạng perceptron nhiều lớp (MLP)
+Mạng thần kinh tích chập (CNN)
+Mạng thần kinh dư (RNN)
+Mạng cao tốc
+Mamba
+Bộ tự mã hóa
+Bộ mã hóa tự động biến phân (VAE)
+Mạng đối nghịch tạo sinh (GAN)
+Mạng thần kinh đồ thị (GNN)
+Bộ biến đổi thị giác (ViT)
+Thể loại
+x
+t
+s
+Anscombe
+Austin
+Aquinas
+Bain
+Bergson
+Block
+Brentano
+Broad
+Burge
+Chalmers
+Churchland
+Dennett
+Dharmakīrti
+Davidson
+Descartes
+Goldman
+Heidegger
+Husserl
+Feyerabend
+Fodor
+James
+Kierkegaard
+Leibniz
+Lewis
+McDowell
+Merleau-Ponty
+Minsky
+Moore
+Nagel
+Parfit
+Putnam
+Popper
+Rorty
+Ryle
+Searle
+Spinoza
+Turing
+Vasubandhu
+Wittgenstein
+Trang Tử
+more...
+Chủ nghĩa hành vi
+Biological naturalism
+Nhị nguyên thân-tâm
+Eliminative materialism
+Emergent materialism
+Epiphenomenalism
+Thuyết chức năng
+Duy tâm
+Interactionism
+Duy vật
+Nhất nguyên
+Naïve realismNeurophenomenology
+Neurophenomenology
+Neutral monism
+New mysterianism
+Bất nhị
+Occasionalism
+Parallelism
+Phenomenalism
+Hiện tượng học
+Thuyết thực hữuType physicalism
+Type physicalism
+Property dualism
+Representational
+Duy ngã
+Substance dualism
+Neurophenomenology
+Type physicalism
+Abstract object
+AI
+Căn phòng tiếng Trung Quốc
+Tư duy sáng tạo
+Nhận thức
+Cognitive closure
+Khái niệm
+Ý thức
+Hard problem of consciousness
+Hypostatic abstraction
+Ý tưởng
+Bản thể
+Trí thông minh
+Intentionality
+Introspection
+Trực giác
+Language of thought
+Mental event
+Mental image
+Nhận thức
+Mental property
+Mental representation
+Tâm trí
+Vấn đề tâm-vật
+Pain
+Problem of other minds
+Propositional attitude
+Qualia
+Tabula rasa
+Understanding
+Zombie
+Siêu hình học
+Triết học AI/Thông tin/perception/self
+Thể loại
+Thể loại Triết học tinh thần
+Project
+Task Force
+x
+t
+s
+Sinh học
+Hoá học
+Vật lý
+Tinh thần
+Trí tuệ nhân tạo
+Thông tin
+Nhận thức
+Không thời gian
+Thermal and statistical physics
+Khoa học xã hội
+Môi trường
+Tâm lý
+Công nghệ
+Khoa học máy tính
+Adolf Grünbaum
+Albert Einstein
+Alfred North Whitehead
+Aristoteles
+Auguste Comte
+Averroes
+Bas van Fraassen
+Berlin Circle
+Bertrand Russell
+Carl Gustav Hempel
+C. D. Broad
+Charles Sanders Peirce
+Dominicus Gundissalinus
+Daniel Dennett
+Epicurians
+Francis Bacon
+Friedrich Schelling
+Galileo Galilei
+Henri Poincaré
+Herbert Spencer
+Hugh of Saint Victor
+Immanuel Kant
+Imre Lakatos
+Isaac Newton
+John Dewey
+John Stuart Mill
+Jürgen Habermas
+Karl Pearson
+Karl Popper
+Karl Jaspers
+Larry Laudan
+Mario Bunge
+Michael Polanyi
+Otto Neurath
+Paul Häberlin
+Paul Feyerabend
+Pierre Duhem
+Pierre Gassendi
+Platon
+R. B. Braithwaite
+René Descartes
+Robert Kilwardby
+Roger Bacon
+Rudolf Carnap
+Stephen Toulmin
+Chủ nghĩa khắc kỷ
+Thomas Hobbes
+Thomas Kuhn
+Vienna Circle
+W.V.O. Quine
+Wilhelm Windelband
+Wilhelm Wundt
+William xứ Ockham
+William Whewell
+thêm...
+Analysis
+Analytic–synthetic distinction
+Tiên nghiệm
+Trí tuệ nhân tạo
+Hiệu ứng vật lý
+Commensurability
+Construct
+Demarcation problem
+Empirical evidence
+Explanatory power
+Explanandum
+Fact
+Falsifiability
+Feminist method
+Ignoramus et ignorabimus
+Lập luận quy nạp
+Ingenuity
+Inquiry
+Intertheoretic reduction
+Models of scientific inquiry
+Tự nhiên
+Objectivity
+Observation
+Mẫu hình
+Problem of induction
+Định luật
+Phương pháp khoa học
+Cách mạng khoa học
+Lý thuyết khoa học
+Testability
+Theory choice
+Theory‐ladenness
+Underdetermination
+Confirmation holism
+Coherentism
+Constructive empiricism
+Constructive realism
+Constructivist epistemology
+Contextualism
+Conventionalism
+Deductive-nomological model
+Determinism
+Chủ nghĩa kinh nghiệm
+Fallibilism
+Foundationalism
+Hypothetico-deductive model
+Inductionism
+Infinitism
+Instrumentalism
+Model-dependent realism
+Chủ nghĩa tự nhiên (triết học)
+Thuyết thực hữu
+Chủ nghĩa thực chứng
+Chủ nghĩa thực dụng
+Chủ nghĩa duy lý
+Received view of theories
+Chủ nghĩa rút gọn
+Scientific anti-realism
+Scientific essentialism
+Scientific formalism
+Scientific realism
+Scientific skepticism
+Scientism
+Semantic view of theories
+Structuralism
+Uniformitarianism
+Vitalism
+Siêu hình học
+Nhận thức luận
+Lịch sử và triết học khoa học
+Lịch sử khoa học
+History of evolutionary thought
+Ngụy khoa học
+Mối quan hệ giữa tôn giáo và khoa học
+Tu từ khoa học
+Xã hội học về kiến thức khoa học
+Chỉ trích khoa học
+Giả kim thuật
+x
+t
+s
+Mạch in
+Thiết bị ngoại vi
+Vi mạch
+Vi mạch tích hợp
+Hệ thống trên vi mạch (SoC)
+Tiêu thụ năng lượng (Điện toán xanh)
+Tự động hóa thiết kế điện tử
+Tăng tốc phần cứng
+Bộ xử lý
+Kích thước/Dạng thức
+Kiến trúc máy tính
+Độ phức tạp tính toán
+Độ tin cậy hệ thống
+Hệ thống nhúng
+Hệ thống thời gian thực
+Kiến trúc mạng
+Giao thức mạng
+Phần cứng mạng
+Bộ lập lịch trình mạng
+Hiệu suất mạng
+Dịch vụ mạng
+Trình thông dịch
+Middleware
+Máy ảo
+Hệ điều hành
+Chất lượng phần mềm
+Mẫu hình lập trình
+Ngôn ngữ lập trình
+Trình biên dịch
+Ngôn ngữ miền chuyên biệt
+Ngôn ngữ mô hình hóa
+Khung phần mềm
+Môi trường phát triển tích hợp
+Quản lý cấu hình phần mềm
+Thư viện phần mềm
+Kho chứa phần mềm
+Biến điều khiển
+Quy trình phát triển phần mềm
+Phân tích yêu cầu
+Thiết kế phần mềm
+Xây dựng phần mềm
+Triển khai phần mềm
+Công nghệ phần mềm
+Bảo trì phần mềm
+Nhóm lập trình
+Mô hình nguồn mở
+Mô hình tính toánNgẫu nhiên
+Ngẫu nhiên
+Ngôn ngữ hình thức
+Lý thuyết Automat
+Lý thuyết khả tính
+Lý thuyết độ phức tạp tính toán
+Logic
+Ngữ nghĩa
+Ngẫu nhiên
+Thiết kế thuật toán
+Phân tích thuật toán
+Hiệu quả thuật toán
+Thuật toán ngẫu nhiên
+Hình học tính toán
+Toán học rời rạc
+Xác suất
+Thống kê
+Phần mềm toán học
+Lý thuyết thông tin
+Giải tích toán học
+Giải tích số
+Khoa học máy tính lý thuyết
+Hệ quản trị cơ sở dữ liệu
+Hệ thống lưu trữ thông tin
+Hệ thống thông tin doanh nghiệp
+Hệ thống thông tin xã hội
+Hệ thống thông tin địa lý
+Hệ thống hỗ trợ ra quyết định
+Hệ thống điều khiển quá trình
+Hệ thống thông tin đa phương tiện
+Khai phá dữ liệu
+Thư viện số
+Nền tảng máy tính
+Tiếp thị kỹ thuật số
+World Wide Web
+Truy hồi thông tin
+Mật mã học
+Các phương pháp hình thức
+Hacker bảo mật
+Dịch vụ bảo mật
+Hệ thống phát hiện xâm nhập
+Bảo mật phần cứng
+Bảo mật mạng
+An toàn thông tin
+Bảo mật ứng dụng
+Thiết kế tương tác
+Điện toán xã hội
+Điện toán khắp nơi
+Trực quan hóa
+Khả năng tiếp cận
+Tính toán tương tranh
+Tính toán song song
+Điện toán phân tán
+Đa luồng
+Đa xử lý
+Xử lý ngôn ngữ tự nhiên
+Biểu diễn tri thức và suy luận
+Thị giác máy tính
+Lập kế hoạch và lên lịch tự động
+Phương pháp tìm kiếm
+Phương pháp điều khiển
+Triết học về trí tuệ nhân tạo
+Trí tuệ nhân tạo phân tán
+Học có giám sát
+Học không có giám sát
+Học tăng cường
+Học đa tác vụ
+Kiểm chứng chéo
+Hoạt hình
+Thực tế mở rộngTăng cườngHỗn hợpẢo
+Tăng cường
+Hỗn hợp
+Ảo
+Kết xuất
+Thao túng hình ảnh
+Bộ xử lý đồ họa
+Nén ảnh
+Mô hình hóa dạng khối
+Tăng cường
+Hỗn hợp
+Ảo
+Điện toán lượng tử
+Thương mại điện tử
+Phần mềm doanh nghiệp
+Toán học tính toán
+Vật lý tính toán
+Hóa học tính toán
+Sinh học tính toán
+Khoa học xã hội tính toán
+Kỹ thuật tính toán
+Điện toán khả vi
+Y tế tính toán
+Nghệ thuật số
+Xuất bản điện tử
+Chiến tranh mạng
+Bầu cử điện tử
+Trò chơi video
+Soạn thảo văn bản
+Vận trù học
+Công nghệ giáo dục
+Quản lý tài liệu
+Thể loại
+Đề cương
+Thuật ngữ
+x
+t
+s
+Phác thảo của công nghệ
+Phác thảo của khoa học ứng dụng
+Kỹ thuật nông nghiệp
+Nuôi trồng thủy sản
+Khoa học thủy sản
+Hóa thực phẩm
+Kỹ thuật thực phẩm
+Vi sinh thực phẩm
+Công nghệ thực phẩm
+Công nghệ hạn chế sử dụng di truyền
+Công nghệ thông tin và truyền thông trong nông nghiệp
+Dinh dưỡng
+Tin sinh học
+Biomechatronics
+Kỹ thuật y sinh
+Công nghệ sinh học
+Tin hóa học
+Kỹ thuật di truyền
+Khoa học chăm sóc sức khỏe
+Nghiên cứu y học
+Công nghệ y học
+Y học nano
+Khoa học thần kinh
+Công nghệ thần kinh
+Dược lý học
+Công nghệ sinh sản
+Kỹ thuật mô
+Kỹ thuật âm thanh
+Kỹ sư kiến trúc
+Kỹ thuật xây dựng dân dụng
+Kỹ thuật xây dựng
+Công nghệ trong nhà
+Facade engineering
+Fire protection engineering
+Safety engineering
+Sanitary engineering
+Structural engineering
+Phần mềm giáo dục
+Giáo dục trực tuyến
+Information and communication technologies in education
+Impact of technology on the educational system
+Virtual campus
+Kỹ thuật hạt nhân
+Công nghệ hạt nhân
+Kỹ thuật xăng dầu
+Công nghệ năng lượng mềm
+Công nghệ sạch
+Công nghệ than sạch
+Thiết kế sinh thái
+Kỹ thuật sinh thái
+Công nghệ Eco
+Kỹ thuật môi trường
+Khoa học kỹ thuật môi trường
+Công trình xanh
+Công nghệ nano xanh
+Kỹ thuật cảnh quan
+Năng lượng tái tạo
+Thiết kế bền vững
+Kỹ thuật bền vững
+Tự động hóa
+Tin học kinh tế
+Quản lý kỹ thuật
+Kỹ thuật doanh nghiệp
+Kỹ thuật tài chính
+Công nghệ sinh học công nghiệp
+Kỹ thuật công nghiệp
+Luyện kim
+Kỹ thuật khai thác mỏ
+Năng suất cải thiện công nghệ
+Ma sát học
+Trí tuệ nhân tạo
+Broadcast engineering
+Kỹ thuật máy tính
+Khoa học máy tính
+Công nghệ tài chính
+Công nghệ thông tin
+Công nghệ âm nhạc
+Ontology engineering
+RF engineering
+Công nghệ phần mềm
+Kỹ thuật viễn thông
+Công nghệ hình ảnh
+Kỹ thuật Web
+Tác chiến điện tử
+Thông tin liên lạc quân sự
+Công binh
+Công nghệ tàng hình
+Kỹ thuật hàng không vũ trụ
+Kỹ thuật ô tô
+Kiến trúc hàng hải
+Công nghệ vũ trụ
+Kỹ thuật giao thông
+Chất làm lạnh
+Electro-optics
+Điện tử học
+Kỹ thuật địa chất
+Vật lý kỹ thuật
+Thủy lực học
+Khoa học vật liệu
+Vi chế
+Kỹ thuật nano
+Kỹ thuật âm thanh
+Kỹ thuật sinh hóa
+Kỹ thuật gốm sứ
+Kỹ thuật hóa học
+Kỹ thuật Polymer
+Kiểm soát kỹ thuật
+Kỹ thuật điện
+Kỹ thuật điện tử
+Công nghệ giải trí
+Địa kỹ thuật
+Kỹ thuật thủy lực
+Kỹ thuật cơ khí
+Cơ điện tử
+Kỹ thuật quang học
+Kỹ thuật Protein
+Công nghệ lượng tử
+Tự động hóaRobot
+Robot
+Hệ thống kỹ thuật
+Robot
+Công trình hạ tầng xã hội
+Sáng chếBiên niên sử các sáng chế
+Biên niên sử các sáng chế
+Tri thức
+Máy móc
+Kỹ năngNghề
+Nghề
+Dụng cụGadget
+Gadget
+Biên niên sử các sáng chế
+Nghề
+Gadget
+Công nghệ femto
+Công nghệ pico
+Công nghệ nano
+Công nghệ micro
+Kỹ thuật Macro
+Kỹ thuật Megascale
+Outline of prehistoric technology
+Neolithic Revolution
+Ancient technology
+Medieval technology
+Renaissance technology
+Cách mạng công nghiệpCách mạng công nghiệp lần thứ hai
+Cách mạng công nghiệp lần thứ hai
+Jet Age
+Digital Revolution
+Information Age
+Cách mạng công nghiệp lần thứ hai
+Appropriate technology
+Critique of technology
+Diffusion of innovations
+Disruptive innovation
+Dual-use technology
+Ephemeralization
+Ethics of technology
+Công nghệ cao
+Hype cycle
+Inevitability thesis
+Low-technology
+Mature technology
+Philosophy of technology
+Strategy of Technology
+Technicism
+Techno-progressivism
+Technocapitalism
+Technocentrism
+Technocracy
+Technocriticism
+Technoetic
+Technoethics
+Technological change
+Technological convergence
+Technological determinism
+Technological escalation
+Technological evolution
+Technological fix
+Technological innovation system
+Technological momentum
+Technological nationalism
+Technological rationality
+Technological revival
+Điểm kỳ dị công nghệ
+Technological somnambulism
+Technological utopianism
+Technology lifecycleTechnology acceptance modelTechnology adoption lifecycle
+Technology acceptance model
+Technology adoption lifecycle
+Technomancy
+Technorealism
+Triết học siêu nhân học
+Technology acceptance model
+Technology adoption lifecycle
+Công nghệ mới nổiDanh sách
+Danh sách
+Công nghệ hư cấu
+Technopaganism
+Khu thương mại công nghệ cao
+Thang Kardashev
+Danh mục công nghệ
+Khoa học, Công nghệ và xã hộiTechnology dynamics
+Technology dynamics
+Khoa học và công nghệ theo quốc gia
+Technology alignment
+Technology assessment
+Technology brokering
+Công ty công nghệ
+Technology demonstration
+Technology educationĐại học Kỹ thuật
+Đại học Kỹ thuật
+Công nghệ truyền giáo
+Công nghệ tổng hợp
+Quản trị công nghệ
+Tích hợp công nghệ
+Công nghệ báo chí
+Quản lý công nghệ
+Bảo tàng công nghệ
+Chính sách công nghệ
+Công nghệ sốc
+Công nghệ và xã hội
+Chiến lược công nghệ
+Chuyển giao công nghệ
+Vũ khíDanh sách vũ khí
+Danh sách vũ khí
+Danh sách
+Technology dynamics
+Đại học Kỹ thuật
+Danh sách vũ khí
+Sách
+Thể loại
+Commons
+Chủ đề
+Wikiquote
+x
+t
+s
+Robot nông nghiệp
+Hệ sinh thái khép kín
+Thịt trong ống nghiệm
+Thực phẩm biến đổi gen
+Nông nghiệp công nghệ cao
+Mô hình canh tác theo chiều dọc
+Kiến trúc nhân tạo
+In xây dựng (Contour crafting)
+Thành phố vòm
+Cầu thôi miên
+Kiến trúc vô hình
+Tháp ủ
+Tử cung nhân tạo
+Não nhân tạo
+Ampakine (Thuốc)
+Cấy ghép cơ thểCấy ghép đầuCấy ghép não
+Cấy ghép đầu
+Cấy ghép não
+Bảo quản nhiệt độ thấp
+Chất bảo quản lạnhThủy tinh hóa
+Thủy tinh hóa
+Phục hồi sinh vậtBảo quản lạnh
+Bảo quản lạnh
+Mã bộ gen hoàn chỉnh
+Biến đổi genLiệu pháp gen
+Liệu pháp gen
+Não trong ống nghiệm
+Sự sống bất tửNhững phương pháp loại bỏ sự lão hóa
+Những phương pháp loại bỏ sự lão hóa
+Y học nano
+Công nghệ nano
+Y học cá nhân hóa
+Y học tái sinhLiệu pháp tế bào gốcCông nghệ mô
+Liệu pháp tế bào gốc
+Công nghệ mô
+Robot phẫu thuật
+Suspended animation
+Sinh học tổng hợpCông nghệ chết lâm sàng
+Công nghệ chết lâm sàng
+Robot Virus sinh họcVirus Oncolytic
+Virus Oncolytic
+Máy quyét y tế
+Cấy ghép đầu
+Cấy ghép não
+Thủy tinh hóa
+Bảo quản lạnh
+Liệu pháp gen
+Những phương pháp loại bỏ sự lão hóa
+Liệu pháp tế bào gốc
+Công nghệ mô
+Công nghệ chết lâm sàng
+Virus Oncolytic
+FED
+FLD
+iMoD
+Laser
+LPD
+OLED
+OLET
+QD-LED
+SED
+TPD
+TDEL
+TMOS
+Kính áp tròng thực tế ảo
+Công nghệ hiển thị nổi trong màn hình
+Công nghệ hiển thị nổi trên màn hình
+Công nghệ hiển thị trong không trungMàn hình hiển thị ba chiều trong không trung
+Màn hình hiển thị ba chiều trong không trung
+Công nghệ hiển thị gắn trên đầu
+Màn hình võng mạc ảo
+Màn hình hiển thị ba chiều trong không trung
+Tự động hiển thị hình ảnh nổi
+Màn hình dẻo
+Màn hình hiển thị ba chiều
+Màn hình đa màu
+Truyền hình độ nét cực cao
+Màn hình thể tích
+Thực tế ảo
+Tương tác thực tế ảo
+Cảm biến điện tử
+Dệt may điện tử
+Thiết bị điện tử đa năng
+Điện phân tử
+Hệ thống cơ điện tử nano
+Bộ nhớ điện trở
+Chuyển động quay của điện tử
+Điện tử tạm thời
+Turbine gió
+Quang hợp nhân tạo
+Nhiên liệu sinh học
+Nhiên liệu carbon
+Điện mặt trời
+Điện nhiệt hạch
+Tế bào nhiên liệu nhà
+Nền kinh tế hydro
+Nền kinh tế Methanol
+Lò phản ứng muối nóng chảy
+Đường cao tốc thông minh
+Năng lượng Mặt Trời dựa trên không gian
+Động cơ xoáy
+Beltway battery
+Carbon neutral fuel
+Lưu trữ năng lượng không khí
+Lưu trữ năng lượng bánh đà
+Lưu trữ năng lượng lưới
+Lưu trữ năng lượng nhiệt
+Pin kim loại-không khí
+Pin muối nóng chảy
+Dây pin nano
+Research in lithium-ion batteries
+Pin silicon-không khí
+Siêu tụ điện hai lớp
+Mạng lưới điện thông minh
+Năng lượng không dây
+Sóng kéo
+Năng lượng siêu âm
+Ambient intelligenceInternet Vạn Vật
+Internet Vạn Vật
+Trí tuệ nhân tạoCác ứng dụng của trí tuệ nhân tạoTiến bộ trong trí tuệ nhân tạoMáy dịchMáy tầm nhìnSemantic WebNhận dạng giọng nói
+Các ứng dụng của trí tuệ nhân tạo
+Tiến bộ trong trí tuệ nhân tạo
+Máy dịch
+Máy tầm nhìn
+Semantic Web
+Nhận dạng giọng nói
+Máy tính quang học
+Máy tính lượng tử
+Mật mã lượng tử
+Điện tử học
+Mạng dữ liệu NDN
+Điện thoại 3D
+Dự án Avatar
+Công nghệ truyền thông di động4G5G6G
+4G
+5G
+6G
+Internet Vạn Vật
+Các ứng dụng của trí tuệ nhân tạo
+Tiến bộ trong trí tuệ nhân tạo
+Máy dịch
+Máy tầm nhìn
+Semantic Web
+Nhận dạng giọng nói
+4G
+5G
+6G
+In 3D
+In 4D
+Robot nano 3D
+Lắp ráp phân tử
+Robot nano phân tử đa năng
+Robot biến hình
+Máy in quần áo
+Vật liệu Aerogel
+Kim loại vô định hình
+Cơ nhân tạo
+Polyme dẫn điện
+Công nghệ femto
+Phân tử Fullerene
+Vật liệu Graphene
+Siêu dẫn nhiệt độ cao
+Siêu lỏng
+Siêu vật liệuSiêu vật liệu tàng hình
+Siêu vật liệu tàng hình
+Vật liệu đa chức năng
+Công nghệ nanoỐng nano carbonCông nghệ nano phân tửVật liệu nano
+Ống nano carbon
+Công nghệ nano phân tử
+Vật liệu nano
+Công nghệ pico
+Vấn đề lập trình
+Silicene
+Hợp kim hiệu suất cao
+Kim cương tổng hợp
+Siêu vật liệu tàng hình
+Ống nano carbon
+Công nghệ nano phân tử
+Vật liệu nano
+Vũ khí phản vật chất
+Đạn hạt nhân
+Vũ khí năng lượng định hướngVũ khí LaserVũ khí MaserVũ khí hạt chùmVũ khí siêu âmSúng trườngSúng điện từ Railgun
+Vũ khí Laser
+Vũ khí Maser
+Vũ khí hạt chùm
+Vũ khí siêu âm
+Súng trường
+Súng điện từ Railgun
+Vũ khí Plasma
+Vũ khí nhiệt hạch tinh khiết
+Công nghệ tàng hình
+Súng vòng xoáy
+Máy bay siêu thanh
+Pháo laser
+Pháo điện từ
+Vũ khí Laser
+Vũ khí Maser
+Vũ khí hạt chùm
+Vũ khí siêu âm
+Súng trường
+Súng điện từ Railgun
+Cơ học lượng tử
+Máy tính lượng tử
+Mật mã lượng tử
+Đường hầm lượng tử
+Chấm lượng tử
+Mô phỏng lượng tử
+Đo lường lượng tử
+Cảm biến lượng tử
+Hình ảnh lượng tử
+Điện toán lượng tử
+Internet lượng tử
+Vật liệu lượng tử
+Bộ não nhân tạoDự án Blue Brain
+Dự án Blue Brain
+Giao diện não-máy tính
+Điện não
+Sao chép tinh thần
+Thần kinh nhân tạoMắt điện tửCấy ghép nãoVỏ não thông minhCấy ghép võng mạc
+Mắt điện tử
+Cấy ghép não
+Vỏ não thông minh
+Cấy ghép võng mạc
+Dự án Blue Brain
+Mắt điện tử
+Cấy ghép não
+Vỏ não thông minh
+Cấy ghép võng mạc
+Nhà thông minh
+Robot nano
+Áo giáp sức mạnh
+Xe không người lái
+Tên lửa nhiệt hạch
+Hệ thống khởi động tái sử dụng
+Thang máy vũ trụ
+Skyhook
+Động cơ ion
+Laser đẩy
+Động cơ đẩy Plasma
+Dự án Orion (động cơ đẩy hạt nhân)
+Động cơ đẩy xung hạt nhân
+Buồm năng lượng mặt trời
+Dịch chuyển cong không gian
+Du hành không gian
+Kho nhiên liệu đẩy
+Adaptive Compliant Wing
+Công ty Aeros
+Máy bay trực thăng ba lô
+Giao hàng không người lái
+Xe bay
+Tự động hóa trong không gian
+Ba lô tên lửa
+Động cơ phản lực
+Tàu con thoi
+Vận tải siêu âm
+Lốp nén không khíTweel
+Tweel
+Xe nhiên liệu thay thếXe hydro
+Xe hydro
+Xe lái tự động
+Ground effect train
+Tàu đệm từ
+Giao thông công cộng
+Đường sắt cao tốcLiên minh toàn cầu ET3Tàu siêu tốc Hyperloop
+Liên minh toàn cầu ET3
+Tàu siêu tốc Hyperloop
+Hệ thống thông tin liên lạc xe cộ
+Tweel
+Xe hydro
+Liên minh toàn cầu ET3
+Tàu siêu tốc Hyperloop
+Ống khí nénAutomated vacuum collectionĐường ống ngầm
+Automated vacuum collection
+Đường ống ngầm
+Automated vacuum collection
+Đường ống ngầm
+Trọng lực không hấp dẫn
+Áo tàng hình
+Công nghệ khứu giác
+Trường lựcCửa sổ plasma
+Cửa sổ plasma
+Hiệu ứng từ nhiệt
+Trò chơi điện tử ứng dụng hóa
+Công nghệ khí hậu
+Công nghệ không dây
+Điều khiển vật thể bằng suy nghĩ
+Trường sinh bất tử
+Cửa sổ plasma
+Collingridge dilemma
+Phát triển công nghệ khác biệt
+Thuật ngữ Ephemeralization
+Kỹ thuật thăm dò
+Công nghệ hư cấu
+Nguyên tắc Proactionary
+Thay đổi công nghệThất nghiệp công nghệ
+Thất nghiệp công nghệ
+Hội tụ công nghệ
+Tiến hóa công nghệ
+Mô hình công nghệ
+Dự báo công nghệThúc đẩy sự thay đổiĐịnh luật MooreĐiểm kỳ dị công nghệCông nghệ trinh sát
+Thúc đẩy sự thay đổi
+Định luật Moore
+Điểm kỳ dị công nghệ
+Công nghệ trinh sát
+Mức độ sẵn sàng công nghệ
+Lộ trình công nghệ
+Triết học siêu nhân học
+Thất nghiệp công nghệ
+Thúc đẩy sự thay đổi
+Định luật Moore
+Điểm kỳ dị công nghệ
+Công nghệ trinh sát
+Thể loại
+Danh sách
+Hình ảnh
+x
+t
+s
+Đại cương
+từ điển thuật ngữ
+Bảng kê
+Lịch sử
+Tương lai
+Địa lý
+Nhà kỷ niệm những robot nổi tiếng
+Đạo đức
+Luật
+Các cuộc thi AI
+AnthropomorphicGiống ngườiAndroidCyborg
+Giống người
+Android
+Cyborg
+Claytronics
+Animatronic
+Công nghiệp
+Có khớp nốiCánh tay
+Cánh tay
+Gia dụng
+Giải trí
+Tung hứng
+Quân sự
+Y tế
+Dịch vụ
+Hỗ trợ người khuyết tật
+Nông nghiệp
+Dịch vụ thức ăn
+Bán lẻ
+Robot học BEAM
+Robot học mềm
+Thiết bị không người lái
+Giống người
+Android
+Cyborg
+Cánh tay
+Phương tiện trên không
+Phương tiện dưới đất
+Robot di độngdẫn đường
+dẫn đường
+Microbotics
+Nanorobotics
+Tàu vũ trụ robotThăm dò không gian
+Thăm dò không gian
+Leo cây
+Lặn
+dẫn đường
+Thăm dò không gian
+Theo dấu
+Đi bộSáu chân
+Sáu chân
+Leo trèo
+Xe một bánh tự cân bằng
+Sáu chân
+Sự tiến hóa
+Các dụng cụ
+Giả lập
+Suite
+nguồn mở
+Phần mềm
+Đáp ứng
+Phát triển
+Hệ biến hóa
+Phổ biến
+Thất nghiệp công nghệ
+Robot hư cấu
+Thể loại
+x
+t
+s
+Lập trình khả vi
+Neural Turing machine
+Differentiable neural computer
+Automatic differentiation
+Neuromorphic engineering
+Suy giảm độ dốc
+Cable theory
+Phân nhóm dữ liệu
+Phân tích hồi quy
+Nhận dạng mẫu
+Adversarial machine learning
+Computational learning theory
+Python (ngôn ngữ lập trình)
+Julia (programming language)
+Học máy
+Mạng thần kinh nhân tạo
+Khoa học tính toán
+Trí tuệ nhân tạo
+Tensor Processing Unit
+Vision processing unit
+Memristor
+SpiNNaker
+TensorFlow
+PyTorch
+AlexNet
+WaveNet
+Human image synthesis
+Handwriting recognition
+Nhận dạng ký tự quang học
+Tổng hợp giọng nói
+Nhận dạng tiếng nói
+Hệ thống nhận dạng khuôn mặt
+Word2vec
+Transformer (machine learning model)
+BERT (mô hình ngôn ngữ)
+Dịch máy bằng nơ-ron
+Project Debater
+Watson (phần mềm trí tuệ nhân tạo)
+GPT-3
+AlphaGo
+Q-learning (học tăng cường)
+State–action–reward–state–action
+OpenAI Five
+Alex Graves (computer scientist)
+Ian Goodfellow
+Yoshua Bengio
+Geoffrey Hinton
+Yann LeCun
+Andrew Ng
+Demis Hassabis
+David Silver (computer scientist)
+CổngLập trình máy tínhCông nghệ
+Lập trình máy tính
+Công nghệ
+Thể loạiMạng thần kinh nhân tạoHọc máy
+Mạng thần kinh nhân tạo
+Học máy
+Lập trình máy tính
+Công nghệ
+Mạng thần kinh nhân tạo
+Học máy
+x
+t
+s
+Nông nghiệpThuần hóaGhép câyĐộng vật lao động
+Thuần hóa
+Ghép cây
+Động vật lao động
+Quần áoMáy may
+Máy may
+Nấu ănBiaBánh mìPhô maiXayRượu vang
+Bia
+Bánh mì
+Phô mai
+Xay
+Rượu vang
+Bảo quản thực phẩmGốm sứ
+Gốm sứ
+Vệ sinhHệ thống ống nướcNhà vệ sinh
+Hệ thống ống nước
+Nhà vệ sinh
+Công cụ/Thiết bịLưỡi daoBúaCái càyNêm
+Lưỡi dao
+Búa
+Cái cày
+Nêm
+Vũ khíSúng
+Súng
+Thuần hóa
+Ghép cây
+Động vật lao động
+Máy may
+Bia
+Bánh mì
+Phô mai
+Xay
+Rượu vang
+Gốm sứ
+Hệ thống ống nước
+Nhà vệ sinh
+Lưỡi dao
+Búa
+Cái cày
+Nêm
+Súng
+Kế toán
+Tính toánBàn tínhLịch
+Bàn tính
+Lịch
+Mật mã học
+Ổ khóa và chìa khóa
+Tiền tệTiền giấyTiền xu
+Tiền giấy
+Tiền xu
+Nhạc cụMáy hát (Phonograph)
+Máy hát (Phonograph)
+Đồ chơiTrò chơiTrò chơi điện tử
+Trò chơi
+Trò chơi điện tử
+Chữ viếtSáchBản đồMáy inMáy đánh chữ
+Sách
+Bản đồ
+Máy in
+Máy đánh chữ
+Bàn tính
+Lịch
+Tiền giấy
+Tiền xu
+Máy hát (Phonograph)
+Trò chơi
+Trò chơi điện tử
+Sách
+Bản đồ
+Máy in
+Máy đánh chữ
+Cống dẫn nướcKênh đàoThủy lợi
+Kênh đào
+Thủy lợi
+Vòm cung
+Cầu
+Tòa nhàCông sựNền móngGiàn giáoTháp
+Công sự
+Nền móng
+Giàn giáo
+Tháp
+Đập nướcHộp chìm
+Hộp chìm
+Thợ đá xây dựng
+Đường
+Đường hầm
+Kênh đào
+Thủy lợi
+Công sự
+Nền móng
+Giàn giáo
+Tháp
+Hộp chìm
+Máy bayKhí cầuMáy bayThủy phi cơ
+Khí cầu
+Máy bay
+Thủy phi cơ
+La bàn
+Thang máy
+Cưỡi ngựaBàn đạp
+Bàn đạp
+Động cơ phản lựcTên lửa
+Tên lửa
+Phương tiện cơ giới
+Đường sắtTàu hỏa
+Tàu hỏa
+Bộ thiết bị lặn (Scuba)
+Tàu vũ trụVệ tinhTrạm vũ trụBộ đồ vũ trụ
+Vệ tinh
+Trạm vũ trụ
+Bộ đồ vũ trụ
+Tàu thủyThuyền buồmTàu biểnTàu ngầm
+Thuyền buồm
+Tàu biển
+Tàu ngầm
+Khí cầu
+Máy bay
+Thủy phi cơ
+Bàn đạp
+Tên lửa
+Tàu hỏa
+Vệ tinh
+Trạm vũ trụ
+Bộ đồ vũ trụ
+Thuyền buồm
+Tàu biển
+Tàu ngầm
+In 3D
+Thủ công mộc
+ĐúcÉp phunĐúc khuôn sáp
+Ép phun
+Đúc khuôn sáp
+Sản xuất hàng loạtDây chuyền lắp rápCác bộ phận thay thếMáy công cụ
+Dây chuyền lắp ráp
+Các bộ phận thay thế
+Máy công cụ
+Hàn
+Ép phun
+Đúc khuôn sáp
+Dây chuyền lắp ráp
+Các bộ phận thay thế
+Máy công cụ
+Trục xe
+Vòng biVòng bi cầu
+Vòng bi cầu
+Dây đaiXích
+Xích
+Đòn bẩyMáy bắn đáCần trụcGàu tát nước
+Máy bắn đá
+Cần trục
+Gàu tát nước
+Liên kếtCamBộ ly hợpLiên kết bốn thanhPít-tôngBánh răng thanh răng
+Cam
+Bộ ly hợp
+Liên kết bốn thanh
+Pít-tông
+Bánh răng thanh răng
+Con lắc
+VítVít ArchimedesChân vịt
+Vít Archimedes
+Chân vịt
+Lò xo
+Van
+Bánh xeRòng rọcBánh đàBánh răngBàn xoay làm gốmRòng rọc
+Ròng rọc
+Bánh đà
+Bánh răng
+Bàn xoay làm gốm
+Ròng rọc
+Cánh
+Vòng bi cầu
+Xích
+Máy bắn đá
+Cần trục
+Gàu tát nước
+Cam
+Bộ ly hợp
+Liên kết bốn thanh
+Pít-tông
+Bánh răng thanh răng
+Vít Archimedes
+Chân vịt
+Ròng rọc
+Bánh đà
+Bánh răng
+Bàn xoay làm gốm
+Ròng rọc
+Máy móc nông nghiệp
+Thiết bị gia dụngMáy rửa chénMáy giặt
+Máy rửa chén
+Máy giặt
+Động cơĐộng cơ điệnĐộng cơ đốt trongTua-binBánh xe nướcCối xay gió
+Động cơ điện
+Động cơ đốt trong
+Tua-bin
+Bánh xe nước
+Cối xay gió
+Thiết bị hạng nặng
+Máy thủy lựcXi-lanh thủy lựcBộ chia thủy lựcMáy bơm
+Xi-lanh thủy lực
+Bộ chia thủy lực
+Máy bơm
+Cơ chếĐồng hồVi sai (thiết bị cơ khí)Bánh răng hành tinhKhớp đỡCon quay hồi chuyểnCơ chế Whippletree
+Đồng hồ
+Vi sai (thiết bị cơ khí)
+Bánh răng hành tinh
+Khớp đỡ
+Con quay hồi chuyển
+Cơ chế Whippletree
+Vi cơ điện tử (MEMS)
+Khí nénMáy nénMáy khoan phá bê tôngSúng tán đinhBơm chân không
+Máy nén
+Máy khoan phá bê tông
+Súng tán đinh
+Bơm chân không
+Rô-bốtCánh tay rô-bốtCơ chế chân
+Cánh tay rô-bốt
+Cơ chế chân
+Máy rửa chén
+Máy giặt
+Động cơ điện
+Động cơ đốt trong
+Tua-bin
+Bánh xe nước
+Cối xay gió
+Xi-lanh thủy lực
+Bộ chia thủy lực
+Máy bơm
+Đồng hồ
+Vi sai (thiết bị cơ khí)
+Bánh răng hành tinh
+Khớp đỡ
+Con quay hồi chuyển
+Cơ chế Whippletree
+Máy nén
+Máy khoan phá bê tông
+Súng tán đinh
+Bơm chân không
+Cánh tay rô-bốt
+Cơ chế chân
+Kiểm soát lửaLò thanLò nướng
+Lò than
+Lò nướng
+Tích trữ năng lượngPin điện
+Pin điện
+Năng lượng địa nhiệt
+Bộ trao đổi nhiệtBơm nhiệt
+Bơm nhiệt
+Công nghệ hạt nhânNăng lượng hạt nhânVũ khí hạt nhân
+Năng lượng hạt nhân
+Vũ khí hạt nhân
+Khai thác dầuKhai thác dầu bằng phương pháp thủy lực (Fracking)
+Khai thác dầu bằng phương pháp thủy lực (Fracking)
+Làm lạnhĐiều hòa không khíTủ lạnh
+Điều hòa không khí
+Tủ lạnh
+Năng lượng mặt trờiPin quang điện
+Pin quang điện
+Lò than
+Lò nướng
+Pin điện
+Bơm nhiệt
+Năng lượng hạt nhân
+Vũ khí hạt nhân
+Khai thác dầu bằng phương pháp thủy lực (Fracking)
+Điều hòa không khí
+Tủ lạnh
+Pin quang điện
+Xi măngBê tông
+Bê tông
+Gốm sứGạch
+Gạch
+Đá mảnh
+Kính
+Xây dựng bằng đá
+Luyện kimNhômĐồng thiếcRèn sắtThép
+Nhôm
+Đồng thiếc
+Rèn sắt
+Thép
+Vật liệu nano
+Giấy
+Nhựa
+Đất nện
+Tái chế
+Cao suLưu hóa cao su
+Lưu hóa cao su
+Dệt mayKhung cửiGuồng quay sợi
+Khung cửi
+Guồng quay sợi
+Bê tông
+Gạch
+Nhôm
+Đồng thiếc
+Rèn sắt
+Thép
+Lưu hóa cao su
+Khung cửi
+Guồng quay sợi
+Kiểm soát sinh sản
+Truyền máu
+Nha khoa
+Kỹ thuật di truyềnChỉnh sửa gen CRISPRXét nghiệm genPCR
+Chỉnh sửa gen CRISPR
+Xét nghiệm gen
+PCR
+Bệnh viện
+Chẩn đoán hình ảnh y tế
+Thuốc menGây mêThuốc kháng sinh
+Gây mê
+Thuốc kháng sinh
+Chi giả
+Phẫu thuật
+Vắc xin
+Chỉnh sửa gen CRISPR
+Xét nghiệm gen
+PCR
+Gây mê
+Thuốc kháng sinh
+Chất tẩy rửaXà phòng
+Xà phòng
+Thuốc nhuộm
+Chất nổDynamitePháo hoaThuốc súngTNT
+Dynamite
+Pháo hoa
+Thuốc súng
+TNT
+Phân bónQuy trình Haber
+Quy trình Haber
+Đồ thủy tinh trong phòng thí nghiệm
+Thuốc trừ sâu
+Chất tạo màu
+Quá trình táchSắc kýChưng cấtLọc
+Sắc ký
+Chưng cất
+Lọc
+Máy quang phổ
+Tổng hợp hóa học
+Xà phòng
+Dynamite
+Pháo hoa
+Thuốc súng
+TNT
+Quy trình Haber
+Sắc ký
+Chưng cất
+Lọc
+Nam châm điện
+LaserĐĩa quang học
+Đĩa quang học
+Thấu kínhKính mắt
+Kính mắt
+Lưu trữ từ tính
+Lò vi sóng
+Gương
+Sợi quang học
+Thiết bị quang họcKính hiển viKính thiên văn
+Kính hiển vi
+Kính thiên văn
+Máy gia tốc hạt
+Nhiếp ảnhMáy ảnhPhim điện ảnh
+Máy ảnh
+Phim điện ảnh
+Radar
+Viễn thôngĐiện thoại di độngRadioĐiện báoĐiện thoạiTruyền hình
+Điện thoại di động
+Radio
+Điện báo
+Điện thoại
+Truyền hình
+Đĩa quang học
+Kính mắt
+Kính hiển vi
+Kính thiên văn
+Máy ảnh
+Phim điện ảnh
+Điện thoại di động
+Radio
+Điện báo
+Điện thoại
+Truyền hình
+Mạch điệnACCầu dao điệnDCLưới điệnCầu chìMáy phát điệnCông tắcMáy biến áp
+AC
+Cầu dao điện
+DC
+Lưới điện
+Cầu chì
+Máy phát điện
+Công tắc
+Máy biến áp
+Đèn điệnĐèn huỳnh quangBóng đèn sợi đốtĐèn LEDĐèn neon
+Đèn huỳnh quang
+Bóng đèn sợi đốt
+Đèn LED
+Đèn neon
+Điện tửTụ điệnBảng mạchĐiện trởCuộn cảmBóng đèn chân không
+Tụ điện
+Bảng mạch
+Điện trở
+Cuộn cảm
+Bóng đèn chân không
+Cột thu lôi
+Đồng hồ vạn năng
+Máy hiện sóng
+Siêu dẫnDiodeMạch tích hợpTransistor
+Diode
+Mạch tích hợp
+Transistor
+Siêu dẫn
+AC
+Cầu dao điện
+DC
+Lưới điện
+Cầu chì
+Máy phát điện
+Công tắc
+Máy biến áp
+Đèn huỳnh quang
+Bóng đèn sợi đốt
+Đèn LED
+Đèn neon
+Tụ điện
+Bảng mạch
+Điện trở
+Cuộn cảm
+Bóng đèn chân không
+Diode
+Mạch tích hợp
+Transistor
+Trí tuệ nhân tạo
+Phần cứng máy tínhCPUGPUModemBo mạch chủChuột máy tínhRAMRouterLưu trữMàn hình cảm ứng
+CPU
+GPU
+Modem
+Bo mạch chủ
+Chuột máy tính
+RAM
+Router
+Lưu trữ
+Màn hình cảm ứng
+Mạng máy tínhMô hình Client-ServerEmailInternetPeer-to-peerMạng xã hộiWorld Wide Web
+Mô hình Client-Server
+Email
+Internet
+Peer-to-peer
+Mạng xã hội
+World Wide Web
+Ngôn ngữ lập trình
+Phần mềmTrình biên dịchCơ sở dữ liệuGUIPhần mềm đồ họaHệ điều hànhBảng tínhTrình duyệt webTrình xử lý văn bản
+Trình biên dịch
+Cơ sở dữ liệu
+GUI
+Phần mềm đồ họa
+Hệ điều hành
+Bảng tính
+Trình duyệt web
+Trình xử lý văn bản
+CPU
+GPU
+Modem
+Bo mạch chủ
+Chuột máy tính
+RAM
+Router
+Lưu trữ
+Màn hình cảm ứng
+Mô hình Client-Server
+Email
+Internet
+Peer-to-peer
+Mạng xã hội
+World Wide Web
+Trình biên dịch
+Cơ sở dữ liệu
+GUI
+Phần mềm đồ họa
+Hệ điều hành
+Bảng tính
+Trình duyệt web
+Trình xử lý văn bản
+Công nghệ phù hợpCông nghệ thấp
+Công nghệ thấp
+LudditeTân Luddite
+Tân Luddite
+Nguyên tắc phòng ngừa
+Công nghệ thấp
+Tân Luddite
+Công nghệ môi trườngCông nghệ sạch
+Công nghệ sạch
+Thiết kế bền vữngKỹ thuật bền vững
+Kỹ thuật bền vững
+Công nghệ sạch
+Kỹ thuật bền vững
+Chính quyền bằng thuật toán
+Sở hữu trí tuệBằng sáng chếBí mật thương mại
+Bằng sáng chế
+Bí mật thương mại
+Công nghệ thuyết phục
+Chính sách khoa học
+Chiến lược công nghệ
+Đánh giá công nghệ
+Chủ nghĩa công nghệ hiện thực
+Bằng sáng chế
+Bí mật thương mại
+Nghiên cứu về tương laiDự báo công nghệ
+Dự báo công nghệ
+Chủ nghĩa không tưởng công nghệPhong trào kỹ trịĐiểm kỳ dị công nghệChủ nghĩa siêu nhân
+Phong trào kỹ trị
+Điểm kỳ dị công nghệ
+Chủ nghĩa siêu nhân
+Dự báo công nghệ
+Phong trào kỹ trị
+Điểm kỳ dị công nghệ
+Chủ nghĩa siêu nhân
+Sự khuếch tán đổi mớiChuyển giao công nghệ
+Chuyển giao công nghệ
+Lịch sửThời gian của các phát minh lịch sử
+Thời gian của các phát minh lịch sử
+Triết họcXây dựng xã hội của công nghệĐịnh mệnh công nghệ
+Xây dựng xã hội của công nghệ
+Định mệnh công nghệ
+Mô hình chấp nhận công nghệ
+Chuyển giao công nghệ
+Thời gian của các phát minh lịch sử
+Xây dựng xã hội của công nghệ
+Định mệnh công nghệ
+Nông học
+Kiến trúc
+Xây dựng
+Kỹ thuật
+Giám định tư pháp
+Lâm nghiệp
+Hậu cần
+Y học
+Khai thác mỏ
+Định vị
+Khảo sát
+Thiết kế
+Công nghệ cao
+Phát minh
+Công nghệ trưởng thành
+Nghiên cứu và phát triển
+Sự hội tụ công nghệ
+Chu kỳ công nghệ
+Thể loại
+Đề cương
+Cổng thông tin
+x
+t
+s
+Nguyên lý đột sinh
+Tự tổ chức
+Động lực học xã hội
+Trí tuệ tập thể
+Hành động tập thể
+Ý thức tập thể
+Tới hạn tự tổ chức
+Tâm lý bầy đàn
+Chuyển pha
+Mô hình hóa dựa trên tác tử
+Đồng bộ hóa
+Tối ưu hóa đàn kiến
+Tối ưu bầy đàn
+Hành vi bầy đàn
+Mạng thần kinh nhân tạo
+Tính toán tiến hóa
+Giải thuật di truyền
+Lập trình di truyền
+Sự sống nhân tạo
+Học máy
+Sinh học phát triển tiến hóa
+Trí tuệ nhân tạo
+Robot học tiến hóa
+Khả năng tiến hóa
+Song đề tù nhân
+Lý thuyết lựa chọn hợp lý
+Lý tính giới hạn
+Lý thuyết trò chơi tiến hóa
+Phân tích mạng lưới xã hội
+Mạng lưới thế giới nhỏ
+Độ trung tâm
+Mô-típ
+Lý thuyết đồ thị
+Mở rộng quy mô
+Tính bền vững
+Sinh học hệ thống
+Mạng lưới động
+Mạng lưới thích ứng
+Phân tích chuỗi thời gian
+Phương trình vi phân thường
+Không gian pha
+Điểm thu hút
+Động lực học quần thể
+Hỗn loạn
+Đa ổn định
+Rẽ nhánh
+Mạng lưới bản đồ kết hợp
+Hệ thống phản ứng–khuếch tán
+Phương trình vi phân riêng phần
+Cấu trúc tiêu tán
+Sự thấm qua
+Automat tế bào
+Sinh thái học không gian
+Tự sao chép
+Địa mạo học
+Cân bằng nội môi
+Thao tác hóa
+Phản hồi
+Tự tham chiếu
+Định hướng mục tiêu
+Động lực học hệ thống
+Tạo ý nghĩa
+Entropy
+Điều khiển học
+Tự sinh
+Lý thuyết thông tin
+Lý thuyết tính toán
+GND
+Hoa Kỳ
+Pháp
+BnF data
+Nhật Bản
+Cộng hòa Séc
+Tây Ban Nha
+Latvia
+Israel
+Yale LUX

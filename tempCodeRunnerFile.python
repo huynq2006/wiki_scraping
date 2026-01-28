@@ -1,0 +1,2 @@
+for a in li.find_all("a"):
+            #     a.replace_with(f" {a.get_text(strip=True)} ")
