@@ -3,7 +3,7 @@ import pandas as pd
 
 def extract_table_content(table_cont):
     ## TABLE EXTRACTION
-    tables = content_div.find_all("table")
+    tables = table_cont.find_all("table")
 
     table_data = []
 
@@ -25,7 +25,7 @@ def extract_table_content(table_cont):
     #     if table_row:
     #         table_data.append(table_row)
 
-    for element in content_div.find_all(heading_tags + ["table"], recursive=True):
+    for element in table_cont.find_all(heading_tags + ["table"], recursive=True):
         if element.name in heading_tags:
             current_heading = element.get_text(strip=True)
         
