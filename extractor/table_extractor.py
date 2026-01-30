@@ -4,6 +4,10 @@ import pandas as pd
 def extract_table_content(table_cont):
     ## TABLE EXTRACTION
     table_data = []
+    
+    # If no table container was found, return an empty DataFrame
+    if table_cont is None:
+        return pd.DataFrame([])
 
     heading_tags = ['h1', 'h2', 'h3', 'h4', 'h5']
 
