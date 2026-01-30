@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup
 
 def get_soup(html):
-    soup = BeautifulSoup(html, "html.parser")
-    return soup.text
+    soup = BeautifulSoup(html.text, "html.parser")
+    return soup
 
 def get_content_div(soup):
     content_div = soup.find("div", class_="mw-content-ltr mw-parser-output")
