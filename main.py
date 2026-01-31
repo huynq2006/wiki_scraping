@@ -20,12 +20,21 @@ def main():
     print("Tables:", len(tables))
 
     # sample output (guard against missing content)
-    if content:
-        print("\n--- First section ---")
-        print(content[0]["Title"])
-        print(content[0]["Content"][:2])
-    else:
-        print("No content sections found.")
+    for i in range(0, len(content)):
+        if content:
+            print("\n--- Section {} ---".format(i+1))
+            print(content[i]["Title"])
+            print(content[i]["Content"])
+        else:
+            print("No content sections found.")
+            
+    for j in range(0, min(1, len(tables))):
+        if not tables.empty:
+            print("\n--- Table {} ---".format(j+1))
+            print("Heading:", tables.iloc[j]["Heading"])
+            print("Table data:", tables.iloc[j]["Table"])
+        else:
+            print("No tables found.")
 
 if __name__ == "__main__":
     main()

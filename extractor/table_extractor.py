@@ -29,7 +29,7 @@ def extract_table_content(table_cont):
                 if row_data:
                     rows_data.append(row_data)
 
-            if row_data:
+            if rows_data:
                 table_data.append({
                     "Heading" : current_heading,
                     "Table" : rows_data
